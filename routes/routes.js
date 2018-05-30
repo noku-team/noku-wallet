@@ -1,5 +1,4 @@
-var User = require('../models/user');
-var eth4you = require('../lib/eth4you/eth4you.js');
+﻿var eth4you = require('../lib/eth4you/eth4you.js');
 var axios = require('axios');
 const Entities = require('html-entities').AllHtmlEntities;
 const entities = new Entities();
