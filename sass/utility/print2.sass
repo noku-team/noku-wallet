@@ -1,0 +1,45 @@
+.logo-print
+  display: none
+.qr-print-container
+  display: none
+@media print
+  .qr-print-container
+    display: block
+    margin-left: 50px
+  header, .js-send-funds, .js-noku-swap, .pagination-recent-transactions, .flex-container.space-between.private-key-link , .col-left .margin-30, .token-balance > .label-added , .showAllTokens, .card-dates .address::before, .functions, .link, .js-see-private-key
+    display: none !important
+  .body-real
+    margin-top: 100px
+    flex-direction: column
+    .col-left,.col-right
+      width: 90%
+      margin: 0 auto
+  .token-balance
+    .list-token
+      max-height: 50000px !important
+      & > div
+        background-color: transparent
+        display: inline-block
+        padding: 15px 20px
+        font-size: 20px
+        margin-bottom: 30px
+        width: 21%
+        margin-right: 0
+        & > img
+          height: 30px
+          margin-right: 20px
+    .card-dates
+      .address
+        max-width: 100%
+        span, .card-name
+          opacity: 1
+          color: #4a4a4a
+  .logo-print
+    display: block
+    position:  absolute
+    left:  50%
+    width: 300px
+    top: 40px
+    transform:  translateX(-50%)
+  .print-balance
+    display: block !important

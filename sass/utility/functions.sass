@@ -1,0 +1,5 @@
+@function bg-lightness($bg)
+  @if lightness($bg) < 50
+    @return #fff
+  @else
+    @return #000

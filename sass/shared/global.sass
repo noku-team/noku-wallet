@@ -1,0 +1,108 @@
+body
+  min-width: 1024px
+  overflow-x: auto
+  font-size: $body-fs
+  line-height: $body-lh
+  font-family: $fontDefault
+  max-width: 1920px
+  margin: auto
+  @media all and (min-width: 1921px)
+    box-shadow: 0px 0 5px rgba(28, 29, 156, 0.3)
+
+*
+  outline: none
+
+a:not(.decore)
+  text-decoration: none
+  // color: #fff
+// a:not(.decore):hover
+//   text-decoration: none
+//   color: $links-color
+// @media screen and (min-width: 768px)
+//   [class*="col-"], .container
+//     padding: 0
+
+ul.no-style
+  list-style: none
+  padding: 0
+  li
+    padding: 0
+
+.heading-row
+  height: $heading-height
+  @media screen and (max-width: 768px)
+    height: $heading-height-sm
+  @media screen and (max-width: 468px)
+    height: $heading-height-xs
+
+
+.tick-list
+  li
+    font-weight: 700
+    position: relative
+    padding-left: 25px
+    &:before
+      content: "\e908"
+      display: inline-block
+      font-size: 14px
+      font-family: "icomoon"
+      position: absolute
+      left: 0
+      top: 3px
+      color: $red
+
+.bg-image
+  background-position: center center
+  background-size: cover
+
+
+
+.slick-dots
+  text-align: center
+  li
+    display: inline-block
+    margin-left: 2px
+    margin-right: 2px
+    &.slick-active
+      button
+        border-color: #f00
+  button
+    outline: none
+    background: transparent
+    border-radius: 100%
+    line-height: 0
+    font-size: 0
+    height: 12px
+    width: 12px
+    padding: 0
+    border: 2px solid #999
+
+input, textarea
+  &::-webkit-input-placeholder
+    color: $input-placeholder
+    font-family: $fontDefault
+    font-weight: 300
+input, textarea
+  &::-moz-placeholder
+    color: $input-placeholder
+    font-family: $fontDefault
+    font-weight: 300
+input, textarea
+  &:-ms-input-placeholder
+    color: $input-placeholder
+    font-family: $fontDefault
+    font-weight: 300
+input, textarea
+  &:-moz-placeholder
+    color: $input-placeholder
+    font-family: $fontDefault
+    font-weight: 300
+input, textarea
+  &::placeholder
+    color: $input-placeholder
+    font-family: $fontDefault
+    font-weight: 300
+
+@media screen and (max-width: 767px)
+  .tick-list li:before
+    top: 0

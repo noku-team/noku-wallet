@@ -1,0 +1,2792 @@
+//sass autocompile
+
+@import variables
+@import utility/mixins
+@import utility/functions
+@import utility/decimals
+@import utility/print2
+@import shared/global
+a,a:hover
+  color: $links-color
+img
+  max-width: 100%
+  height: auto
+.margin-50
+  margin-bottom: 50px
+  min-height: 1px
+.accordion
+  .accordion-item
+    overflow: hidden
+    .item-opener
+      cursor: pointer
+    .hidden-section
+      max-height: 0
+      overflow: hidden
+      +transition(max-height $transition-time ease-in-out)
+.home-page
+  #header
+    display: none
+  .home-container .container-left
+    height: 100vh
+.switch-container
+  .dz-preview
+    padding-top: 10px !important
+
+.dropzone-container
+  .dropzone-element
+    background-color: #f9f9ff
+    background-image: url("/Content/images/cloud.png")
+    background-repeat: no-repeat
+    background-position: center
+    padding: 25px 15px
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    font-weight: 700
+    border: 1px solid #c8c9ff
+    border-radius: 4px
+    > *
+      pointer-events: none
+    .span
+      font-size: 14px
+      font-weight:  400
+      span
+        color: $links-color
+        font-weight:  600
+  .images-preview
+    padding-top: 20px
+    display: flex
+    align-items: flex-start
+    justify-content: space-around
+    flex-wrap: wrap
+
+  .dz-preview
+    position: absolute
+    display: block
+    left: 0
+    top: 0
+    right: 0
+    bottom: 20px
+    padding-top: 40px
+    text-align: center
+    word-wrap: break-word
+    overflow: hidden
+    > div:not(.dz-image)
+      display: none
+    .dz-remove
+      background: rgba(255, 255, 255, 0.7)
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+      opacity: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      +transition(all $transition-time ease-in-out)
+      &:after
+        content: "\f1f8"
+        font-family: "Font Awesome\ 5 Pro"
+        font-size: 40px
+        color: black
+        font-weight: 300
+    &:hover
+      .dz-remove
+        +box-shadow(0 4px 20px -2px rgba(0, 0, 0, 0.2))
+        opacity: 1
+
+  .hidden-flex
+    visibility: hidden
+    margin: 0
+    height: 0
+    width: 140px
+
+  @media screen and (max-width: 1024px)
+    .dz-preview
+      .dz-remove
+        opacity: 1
+        padding: 5px
+        height: 30px
+        width: 30px
+        border: 1px solid #ccc
+        top: auto
+        right: auto
+        background: white
+        &:after
+          font-size: 20px
+
+  @media screen and (max-width: 767px)
+    .dropzone-element
+      padding: 20px
+
+    .hidden-flex
+      width: 70px
+
+    .dz-preview
+      width: 60px
+      margin-left: 5px
+      margin-right: 5px
+      margin-bottom: 10px
+      img
+        width: 60px
+
+#header
+  background-color: rgba(68,70,237,1)
+  padding: 25px 30px
+  &, .link
+    color: rgba(255,255,255,.7)
+  .link
+    user-select: none
+    @include transition(color .2s)
+    &:hover
+      color: rgba(255,255,255,1)
+  .logo
+    width: 139px
+    height: 21px
+    margin-left: 5px !important
+    img
+      display: block
+      margin-top: -2px //per centrare il pallino sopra il logo
+  .header-container
+    display: flex
+    justify-content: space-between
+    // &:after
+    //   content: ""
+    //   display: table
+    //   clear: both
+  .left-header
+    display: flex
+    align-items: center
+    // float: left
+    > div
+      display: inline-block
+      vertical-align: middle
+      margin-left: 20px
+  .right-header
+    float: right
+    > div
+      display: inline-block
+      vertical-align: middle
+      margin-left: 20px
+    .wallet-select
+      margin-left: 30px
+      .select-label
+        cursor: pointer
+  .address-container
+    cursor: pointer
+    &:hover
+      color: rgba(255,255,255,1)
+  .workspace
+    padding-left: 28px
+    position: relative
+    a:before
+      font-family: $fontAwesome
+      content: "\f009"
+      font-weight: bold
+      position: absolute
+      left: 0
+      @include transform(translateY(-50%))
+      top: 50%
+      font-size: 18px
+      color: rgba(255,255,255,0.7)
+      @include transition(color .2s)
+    &:hover
+      a:before
+        color: rgba(255,255,255,1)
+.select-custom
+  position: relative
+  .select-label
+    user-select: none
+    padding-right: 15px
+    position: relative
+    cursor: default
+    @include transition(color .2s)
+    &:after
+      font-family: $fontAwesome
+      content: "\f0d7"
+      font-weight: 900
+      position: absolute
+      right: 0
+      @include transform(translateY(-50%))
+      top: calc( 50% + 1px)
+      font-size: 14px
+      color: rgba(255,255,255,0.7)
+      @include transition(all .2s)
+    &:hover
+      color: rgba(255,255,255,1)
+      &:after
+        color: rgba(255,255,255,1)
+  .big-label
+    position: relative
+    z-index: 0
+    &:before
+      z-index: -1
+      content: ""
+      position: absolute
+      top: -14px
+      left: -20px
+      right: -20px
+      bottom: -14px
+      background-color: rgb(35, 38, 194)
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3)
+  .option-modal
+    opacity: 0
+    pointer-events: none
+    visibility: hidden
+    min-width: 260px
+    position: absolute
+    background-color: rgba(255,255,255,1)
+    border: 1px solid rgb(228, 228, 228)
+    padding: 17px 22px
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1)
+    border-radius: 5px
+    color: rgba(74,74,74,.7)
+    top: 50px
+    right: 0
+    z-index: 9999
+    font-size: 14px
+    @include transition(all .3s)
+    .detail-avatar
+      margin-bottom: 20px
+    .description-avatar
+      margin-left: 10px
+      color:  #4a4a4a
+      .js-username
+        font-weight:  bold
+      .js-email
+        font-weight:  300
+        max-width: 130px
+        word-wrap: break-word
+    .js-kyc-level-img
+      margin-left: auto
+      img
+        max-width: 30px
+    .js-avatar
+      width: 35px
+      border-radius: 50px
+      @include box-shadow(0px 1px 8px -1px rgba(0, 0, 0, 0.2))
+      height: 35px
+      position: relative
+      overflow: hidden
+      border: 1px solid #f9f9f9
+      img
+        position: absolute
+        left: 50%
+        top: 50%
+        @include transform(translate(-50%, -50%))
+    .btn-noku
+      background-color: $links-color
+    .option
+      text-transform: capitalize
+      margin: 0 -10px
+      padding: 0 10px
+      border-radius: 5px
+      i
+        font-size: 15px
+        margin-right: 13px
+        color: #4a4a4a
+      a
+        padding: 10px 0
+        display: block
+      &, & a
+        color: rgba(74,74,74,1)
+      &:last-of-type
+        margin-bottom: 0px
+    .label
+      margin-bottom: 15px
+      &, & a
+        color: rgba(155,155,155,1)
+        font-weight: bold
+    .label-separate
+      padding-top: 14px
+      position: relative
+      margin-top: 25px
+      margin-bottom: 15px
+      &:after
+        content: ""
+        width: 100%
+        height: 1px
+        border-bottom: 1px solid rgba(228,228,228,1)
+        position: absolute
+        top: 0
+        left: 0
+  &:hover:not(.wallet-select), &.active
+    .option-modal
+      opacity: 1
+      pointer-events: auto
+      visibility: visible
+      top: 60px
+    &:after
+      content: ""
+      height: 50px
+      position: absolute
+      width: 260px
+      right: 0
+      z-index: 1
+    .select-label
+      &:after
+        @include transform(translateY(-50%) rotate(180deg))
+  &.wallet-select
+    .option-modal
+      right: -20px
+    &:after
+      right: -20px
+    .option
+      &.active
+        background-color: #f1f1fd
+        a
+          color: $links-color
+      &:hover
+        background-color: rgb(241, 241, 253)
+.search-bar
+  position: relative
+  input
+    border-radius: 16.5px
+    background-color: rgba(94,97,255,1)
+    padding: 7px 37px 7px 14px
+    color: rgba(255,255,255,1)
+    border: 0
+    @include transition(width .4s)
+    width: 172px
+    &.focus
+      width: 700px
+      @media (max-width:1440px)
+        width: 440px
+      @media (max-width:1200px)
+        width: 250px
+  .search-icon
+    cursor: pointer
+    &:after
+      position: absolute
+      right: 13px
+      content: "\f002"
+      font-family: $fontAwesome
+      font-size: 16px
+      font-weight: 300
+      top: 50%
+      @include transform(translateY(-50%))
+
+.btn-noku
+  color: rgba(255,255,255,1)
+  border-radius: 3px 5px 5px 5px
+  background-color: #2224c3
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5)
+  @include transition(all .3s)
+  &:hover
+    background-color: #4446ed
+    color: #fff
+.margin-30
+  margin-bottom: 30px
+.home-container
+  .remove-padding
+    padding: 0
+  .center-h
+    position: absolute
+    top: 50%
+    left: 50%
+    @include transform(translateY(-50%) translateX(-50%))
+    width: 400px
+    padding: 20px
+    max-width: 100%
+  .title
+    font-weight: bold
+    font-size: 24px
+    line-height: 29px
+    margin-bottom: 26px
+  .container-left
+    min-height: 500px
+    @media all and (min-height: 650px)
+      height: calc(100vh - 82px)
+    position: relative
+    color: rgba(205,205,255,1)
+    background-image: url(/content/images/background_home.png)
+    position: relative
+    z-index: 0
+    background-attachment: fixed
+    &:after
+      content: ""
+      background-color: rgba(28,29,156,.9)
+      z-index: -1
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+  .description
+    font-weight: 300
+    margin-bottom: 46px
+  .btn-large
+    padding: 21px 30px 19px 21px
+    font-weight: 500
+    background-color: rgba(68,70,237,0.3)
+    position: relative
+    cursor: pointer
+    user-select: none
+    @include transition(background-color .3s)
+    &.active
+      background-color: rgba(68,70,237,1)
+    &:hover
+      background-color: rgba(68, 70, 237, 1)
+    &:not(:last-of-type)
+      margin-bottom: 10px
+    &:after
+      content: "\f105"
+      font-family: $fontAwesome
+      font-weight: 300
+      position: absolute
+      font-size: 23px
+      right: 22px
+      top: 50%
+      @include transform(translateY(-50%))
+  .container-right
+    color: rgba(68,70,237,1)
+.form-control:focus
+  box-shadow: none
+.form-noku
+  label
+    color: rgba(74,74,74,1)
+    user-select: none
+    font-weight: 600
+  .form-control:focus
+    border-color: rgba(94, 97, 255, 0.3)
+    box-shadow: none
+  .double
+    .link
+      float: right
+  .action-form
+    margin-top: 20px
+.signup-block
+  margin-top: 19px
+  padding-top: 19px
+  border-top: 2px solid rgba(242,242,242,1)
+  color: rgba(74,74,74,1)
+  .link
+    margin-left: 10px
+
+.link
+  color: rgba(68,70,237,1)
+
+.custom-control-label:before
+  border: 1px solid rgb(206, 212, 218)
+  background-color: rgb(255, 255, 255)
+
+.btn.focus, .btn:focus
+  box-shadow: none
+
+.custom-checkbox
+  font-size: 1rem
+  font-weight: 400
+  line-height: 1.5
+
+.custom-control-input:focus~.custom-control-label::before
+  border-color: rgba(94, 97, 255, 0.3)
+  box-shadow: none
+
+.back-arrow-block
+  margin-bottom: 19px
+  padding-bottom: 19px
+  border-bottom: 2px solid rgba(242,242,242,1)
+  .back
+    position: relative
+    padding-left: 32px
+    cursor: pointer
+    &:after
+      font-family: $fontAwesome
+      font-size: 15px
+      content: "\f060"
+      color: rgba(60,70,237,1)
+      position: absolute
+      left: 0
+      top: 50%
+      @include transform(translateY(-50%))
+      font-size: 19px
+.privatekey-switch
+  .description
+    color: rgb(0, 0, 0)
+    line-height: 24px
+    font-weight: 400
+    margin-bottom: 22px
+  b
+    display: block
+  .address-block
+    margin-bottom: 20px
+    .address
+      padding: 17px
+      resize: none
+      &:focus
+        border-color: rgba(94, 97, 255, 0.3)
+        box-shadow: none
+.hidden
+  display: none
+.switch-container
+  overflow: hidden
+  opacity: 0
+  @include transition(all .3s)
+  @include transform(translateY(0))
+  .privatekey-switch
+    .copy-obbl
+      textarea
+        cursor: text !important
+      &:before
+        content: ""
+  .btn-noku
+    font-size: 14px
+    padding: 10px 20px
+  .switch-scroll
+    width: 9999999px
+    @include transition(transform .3s)
+    @include transform(translateY(0))
+  &.loaded
+    opacity: 1
+  .switch
+    float: left
+    width: 350px
+    &:not(:first-of-type), &.disabled
+      visibility: hidden
+      opacity: 0
+      pointer-events: none
+      // display: none
+    &.active
+      visibility: visible
+      opacity: 1
+      pointer-events: auto
+      // display: block
+  .unlock-switch
+    .back-arrow-block
+      margin-bottom: 0
+    .single
+      cursor: pointer
+      color: rgb(0,0,0)
+      position: relative
+      padding-bottom: 22px
+      border-bottom: 2px solid rgba(242,242,242,1)
+      padding-top: 26px
+      &:after
+        font-family: $fontAwesome
+        font-size: 15px
+        content: "\f105"
+        color: rgba(0,0,0,1)
+        position: absolute
+        right: 0
+        top: 50%
+        @include transform(translateY(-50%))
+        font-size: 19px
+.modal-noku,.switch
+  &.modal-addressbook
+    .modal-body
+      overflow-y: auto
+      min-height: 50vh
+    .modal-dialog
+      td
+        vertical-align: middle
+      .js-address-name
+        &.success
+          border-color: rgb(0, 128, 0)
+          transition: all .1s
+      @media (min-width: 576px)
+        max-width: 850px
+      .js-address-item
+        // box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.1)
+        height: 55px
+  &.only-visible
+    input, textarea
+      pointer-events:  none
+    .enc-unlock
+      display: none
+  .modal-dialog
+    @media (min-width: 576px)
+      max-width: 550px
+  .modal-content
+    overflow: hidden
+  .modal-body
+    padding: 30px
+    overflow: hidden
+    @include transition(all .4s)
+    max-height: 500px
+  .modal-title
+    color: rgba(68,70,237,1)
+    margin: auto
+  .modal-footer
+    background-color: rgba(68,70,237,1)
+    color: rgb(255,255,255)
+    padding: 1rem 30px
+    .btn-noku
+      padding: 7px 27px
+    .pointer
+      cursor: pointer
+    .dark-blue
+      background-color: rgb(35, 38, 194)
+  .modal-header
+    position: relative
+    &::before
+      content:  ''
+      position:  absolute
+      bottom: -2px
+      height: 3px
+      width: 25%
+      background-color: $links-color
+      transition: width .5s
+      left:  0
+    i.far.fa-times
+      font-size: 18px
+      color:  #9d9d9d
+      cursor:  pointer
+  &.not-progress
+    .modal-header
+      &::before
+        content: none
+  .createwaller-container
+    width: 1000000px
+    @include transition(all .7s)
+  fieldset.step, form.step
+    width: 500px
+    float: left
+    margin-right: 100px
+    @include transition (all .3s)
+    &.disabled
+      visibility:  hidden
+      opacity:  0
+      pointer-events:  none
+  .title-step
+    font-size: 16px
+    font-weight: 600
+    margin-bottom: 10px
+    color: #000000
+  .desc-modal
+    font-size: 14px
+    margin-bottom: 10px
+    color: #000000
+  a.download-noku
+    display: inline-block
+    padding: 10px 20px 10px 50px
+    background-color: #2224c3
+    color: #fff
+    font-size: 14px
+    border-radius: 4px
+    position: relative
+    &::before
+      content: '\f0ed'
+      font-family: 'Font Awesome\ 5 Pro'
+      position:  absolute
+      left: 15px
+      font-size: 18px
+    &.print-noku::before
+      content: '\f02f'
+  textarea.privatekey
+    display:  block
+    width:  100%
+    padding: 15px
+    resize:  none
+    font-size:  16px
+    font-weight:  bold
+    user-select:  none
+    background-color: #fff
+    padding-right: 50px
+    cursor: text
+    margin-bottom: 20px
+    border-radius: 5px
+    border-color: #e4e4e4
+    line-height: 22px
+  &.step1
+    .modal-body
+      max-height: 330px
+  &.step2
+    .modal-header::before
+      width: 50%
+    .createwaller-container
+      @include transform(translateX(-600px))
+    .modal-body
+      max-height: 180px
+  &.step3
+    .modal-header::before
+      width: 75%
+    .createwaller-container
+      @include transform(translateX(-1200px))
+    .modal-body
+      max-height: 300px
+  &.step4
+    .modal-header::before
+      width: 100%
+    .createwaller-container
+      @include transform(translateX(-1800px))
+    .modal-body
+      max-height: 80vh
+    .textarea.privatekey
+      font-weight: 400
+  input.password-noku
+    width:  100%
+    padding: 7px 10px
+    border: 1px solid #e4e4e4
+    box-shadow: none
+    border-radius: 4px
+    margin-bottom: 30px
+  .label-pk
+    font-size:  14px
+    color: #9b9b9b
+    margin-bottom: 7px
+  .jcf-radio
+    border-color: #b2b2b2
+.btn.disabled, .btn:disabled
+  pointer-events: none
+.radiobuttons
+  span.title-step
+    margin: 5px 0
+    margin-left: 10px
+    display:  inline-block
+    color: #000000
+  label
+    display:  flex
+    align-items:  center
+    cursor:  pointer
+    color: #000000
+  .jcf-label-active
+    span.title-step
+      color:  $links-color
+    .jcf-radio
+      background: $links-color
+      border: none
+      span
+        font-size: 11px
+        background: $links-color
+        color: #fff
+        top: -1px
+        left: 3px
+        bottom: inherit
+        right: inherit
+        font-family: Font Awesome\ 5 Pro
+        font-weight: 300
+        &::before
+          content: "\f00c"
+.mb20
+  margin-bottom: 20px !important
+.copy-obbl
+  position: relative
+  textarea
+    cursor: pointer !important
+  &::before
+    content: '\f0c5'
+    font-family: $fontAwesome
+    color: $links-color
+    position: absolute
+    right: 20px
+    top: 25px
+    font-size: 20px
+    cursor: pointer
+input,textarea
+  &::-webkit-input-placeholder
+    color: #999999
+  &::-moz-placeholder
+    color: #999999
+  &:-ms-input-placeholder
+    color: #999999
+  &:-moz-placeholder
+    color: #999999
+.search-bar
+  input
+    &::-webkit-input-placeholder
+      color: #fff
+    &::-moz-placeholder
+      color: #fff
+    &:-ms-input-placeholder
+      color: #fff
+    &:-moz-placeholder
+      color: #fff
+.simple-modal
+  .label-pk
+    color: #4a4a4a
+  input.password-noku,textarea.privatekey
+    margin-bottom: 0
+  .dropzone-container
+    .dropzone-element
+      padding: 45px 15px
+      background-image: url("/Content/images/cloud-big.png")
+.jcf-select
+  width: 100%
+  border: 1px solid #e4e4e4
+  height: 34px
+  border-radius: 4px
+  cursor: pointer
+  .jcf-select-opener
+    background-color: #fff
+    &:after
+      font-family: $fontAwesome
+      content: "\f0d7"
+      font-weight: 900
+      position: absolute
+      right: 10px
+      @include transform(translateY(-50%))
+      top: calc( 50% + 1px)
+      font-size: 14px
+      color: #9b9b9b
+      @include transition(all .2s)
+  .jcf-select-text
+    padding: 3px
+    cursor: pointer
+    height: 34px
+.jcf-drop-active
+  .jcf-select-opener
+    &:after
+      @include transform(translateY(-50%) rotate(180deg))
+.jcf-focus, .jcf-focus *, .jcf-select-drop .jcf-select-drop-content
+  border-color: #e4e4e4 !important
+.avatars
+  display: flex
+  align-items: center
+  margin-top: 10px
+  user-select: none
+  .load-more-wallets
+    font-size: 14px
+    font-weight: 600
+    img
+      margin-right: 7px
+.single-avatar
+  display: inline-block
+  position: relative
+  cursor: pointer
+  margin-right: 15px
+  width: 50px
+  height: 50px
+  &.active
+    &::before
+      content: '\f00c'
+      font-family: $fontAwesome
+      position: absolute
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      border-radius: 100%
+      color: #fff
+      padding: 10px
+      background-color: rgba(86, 88, 239, 0.9)
+      padding: 17px 13px
+      font-size: 25px
+  img
+    border-radius: 100%
+    width: 100%
+
+#print-template
+  display: none
+.choose-avatar.is-invalid
+  .single-avatar
+    border-radius: 100%
+    border: 2px solid #dc3545
+
+
+.jsB-container
+  padding: 30px
+.is-invalid
+  border-color: #dc3545 !important
+.flex-container
+  display: -webkit-box
+  display: -webkit-fle
+  display: -moz-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -webkit-align-items: center
+  -moz-box-align: center
+  -ms-flex-align: center
+  align-items: center
+  -webkit-box-pack: center
+  -webkit-justify-content: center
+  -moz-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+
+.align-stretch
+  -webkit-box-align: stretch
+  -webkit-align-items: stretch
+  -moz-box-align: stretch
+  -ms-flex-align: stretch
+  align-items: stretch
+
+.space-between
+  -webkit-box-pack: justify
+  -webkit-justify-content: space-between
+  -moz-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: space-betwee
+.justify-start
+  justify-content: flex-start
+.align-start
+  align-items: flex-start
+.col-left
+  width: 23%
+  @media (max-width: 1350px)
+    width: 30%
+
+.col-right
+  width:  73%
+  padding-top: 20px
+  @media (max-width: 1350px)
+    width: 65%
+
+.avatar-book
+  .card-avatar
+    text-align: center
+    margin: 0 auto
+.js-address-item:hover
+  background-color: rgba(123, 124, 126, 0.06)
+  transition: background-color .1s
+.card-avatar
+  border-radius: 100%
+  margin-right: 15px
+  img
+    border-radius: 100%
+    min-width: 50px
+  @include transition(all .3s)
+  cursor: pointer
+  position: relative
+  i.fal.fa-qrcode
+    position:  absolute
+    left: 50%
+    top: 50%
+    @include transform(translate(-50%,-50%) scale(0))
+    color:  #fff
+    font-size: 30px
+    pointer-events: none
+    @include transition(all .3s)
+    img
+      @include transition(all .3s)
+  &:hover
+    box-shadow: 0px 0px 0px 2px #fff
+    i.fal.fa-qrcode
+      @include transform(translate(-50%, -50%) scale(1))
+
+.card-name
+  font-weight: 600
+.wallet-card
+  border-radius:  4px
+  box-shadow: 1px 1px 13px -3px rgba(0, 0, 0, 0.32)
+  margin-bottom: 30px
+  .link
+    position: relative
+.card-dates
+  color: #fff
+  font-size: 18px
+  .address
+    font-weight: 300
+    // text-overflow: ellipsis
+    overflow: hidden
+    font-size: 14px
+    margin-top: 5px
+    cursor: pointer
+    // max-width: calc(80% - 20px)
+    // @media (max-width: 1770px)
+    //   max-width: calc(60% - 20px)
+    // @media (max-width: 1440px)
+    //   max-width: calc(55% - 20px)
+    // span
+    //   opacity: .6
+.card-header
+  position: relative
+  overflow: hidden
+  padding: 20px
+  border: none
+.card-background
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  top: 0
+  filter: blur(10px)
+  z-index: -1
+  transform: scale(1.2)
+.card-label
+  font-weight:  bold
+  color:  #4a4a4a
+  font-size:  14px
+.print-balance
+  display: none
+  font-weight:  bold
+  color:  #404040
+  font-size: 20px
+.js-total-balance
+  font-weight:  bold
+  color:  $links-color
+  font-size: 20px
+.total-balance
+  border-bottom: 1px solid #e4e4e4
+  padding: 25px 20px
+.card-body
+  padding:  0
+  background-color: #fff
+.private-key-link
+  padding: 25px 20px
+  .js-see-private-key
+    a
+      color:  $links-color
+      font-weight: 400
+      font-size:  14px
+.link
+  a
+    font-size: 22px
+    font-family: $fontAwesome
+    margin-right: 15px
+    &:last-child
+      margin-right: 0
+a.save::before
+  content : "\f0c7"
+a.print::before
+  content: "\f02f"
+a.reload
+  &.with-check
+    position: relative
+    display: inline-block
+  &::before
+    content: "\f021"
+    display: inline-block
+    @include transition(opacitry .2s)
+  &.reloading::before
+    @include transition(transform 30s linear, opacity .2s)
+    @include transform(rotate(8640deg))
+  &.endReload
+    &::before
+      opacity: 0
+    .checkmark__circle
+      animation: stroke .6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards
+    .checkmark__check
+      animation: stroke .3s cubic-bezier(0.650, 0.000, 0.450, 1.000) .5s forwards
+.address::before
+  font-family: $fontAwesome
+  content: '\f0c5'
+  color: #fff
+  position:  absolute
+  right: 20px
+  font-size: 22px
+.wallet-page
+  background-color: #f6f7fb
+  .body-real
+    align-items: stretch
+    input
+      border: 1px solid #e4e4e4
+      border-radius: 4px
+      box-shadow: none
+      padding: 10px 15px
+      width: 100%
+      &.no-right
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+    .jcf-select
+      height: 38px
+      padding: 3px 10px
+      margin: 0
+      &.jcf-select-no-left
+        border-left: none
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+      &.jcf-select-gas-price
+        position:  absolute
+        width: 100px
+        min-width: 0px
+        left: 1px
+        top: 1px
+        border-radius: 4px
+        padding: 2px 10px
+        .jcf-select-opener
+          border-radius: 4px
+      .jcf-select-text
+        height: auto
+        margin: 0
+        span
+          text-transform: capitalize
+    .gwei
+      background-color: #e4e4e4
+      padding: 5px 20px 5px 110px
+      border-radius: 4px
+      margin-left: 0px
+      position: relative
+      input
+        max-width: 50px
+        padding: 5px
+        text-align: center
+        font-size: 14px
+        background-color: #fff
+        color: #9b9b9b
+        &.disabled
+          background-color: #f2f2f2
+      span
+        font-size: 14px
+        color: #9b9b9b
+        text-transform: uppercase
+        padding-left: 5px
+.avatar
+  margin-right: 20px
+  img
+    border-radius: 100%
+.wallet-simple-card
+  background-color:  #fff
+  border-radius: 4px
+  box-shadow: 1px 1px 13px -3px rgba(0, 0, 0, 0.32)
+  padding: 50px
+  position: relative
+  overflow: hidden
+  @include transition(all .3s)
+  &.ask
+    .finish-step
+      transform: translateY(0%)
+  &.load
+    .ask-layer
+      pointer-events: none
+    .ask-layer
+      opacity: 0
+    .loader-layer
+      opacity: 1
+      pointer-events: auto
+  &.finish
+    a
+      font-weight: bold
+      color: #fff
+      position: relative
+      &::before
+        content: ''
+        width: 100%
+        position: absolute
+        bottom: 0
+        left: 0
+        background-color: #fff
+        height: 1px
+        @include transform(scaleX(0))
+        transform-origin: center right
+        @include transition(transform .4s)
+      &:hover::before
+        @include transform(scaleX(1))
+        transform-origin: center left
+    .finish-step
+      background-color: rgba(76, 175, 80, .93)
+    .progress
+      transform: translateY(-20px)
+      margin-top: 0
+      opacity: 0
+    .loader-svg
+      opacity: 0
+    .finish
+      opacity: 1
+      @include transform(translateY(0))
+    .checkmark__circle
+      animation: stroke .6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards
+    .checkmark__check
+      animation: stroke .3s cubic-bezier(0.650, 0.000, 0.450, 1.000) .5s forwards
+.send-funds-card, .noku-swap-card
+  @media (min-width:1360px)
+    padding-right: 15%
+.send-funds-card
+  .finish
+    text-align: left
+    margin-top: -15px
+.title-section
+  font-size:  24px
+  font-weight:  bold
+  color:  $links-color
+  margin-bottom: 20px
+.label-added
+  font-size:  16px
+  font-weight: 500
+  color:  #4a4a4a
+  margin-bottom: 10px
+  display: block
+.address-fund
+  width: 45%
+  @media (max-width: 1235px)
+    margin-bottom: 30px
+.js-gas-limit
+  margin-right: 40px
+  input
+    max-width: 100px
+.info
+  cursor: pointer
+  position: relative
+span.info:not(.not-style)
+  color: #9b9b9b
+  font-weight: bold
+  margin-left: 5px
+  &::before
+    font-family: $fontAwesome
+    content:  '\f059'
+.info:hover
+  .message-box
+    opacity: 1
+    pointer-events: auto
+    transform: translateX(0)
+.message-box
+  color: rgb(155, 155, 155)
+  position: fixed
+  top: -10vh
+  pointer-events: none
+  right: -10vw
+  font-size: 12px
+  font-weight: 300
+  background-color: #fff
+  box-shadow: 0px 0px 13px -4px #dddddd
+  padding: 10px
+  top: 0
+  right: 10px
+  border: 1px solid #dddddd
+  z-index: 9999
+  max-width: 150px
+  transform: translateX(10px)
+  opacity: 0
+  @include transition(opacity .3s, transform .3s)
+  &::before
+    content:  '\f0d9'
+    font-family: $fontAwesome
+    position: absolute
+    left: -10px
+    top: 50%
+    box-shadow: 0px 0px 13px -4px #dddddd
+    @include transform(translateY(-50%))
+    z-index: 9999
+    font-weight: bold
+    font-size: 30px
+    color: #dddddd
+  &::after
+    content:  '\f0d9'
+    font-family: $fontAwesome
+    position: absolute
+    left: -9px
+    top: 50%
+    @include transform(translateY(-50%))
+    z-index: 9999
+    font-weight: bold
+    font-size: 43px
+    color: #fff
+.wallet-page
+  .card-dates
+    .message-box
+      max-width: 320px
+.jcf-select-jcf-colored
+  background-color: #9b9b9b
+  max-width: 100px
+  color: #fff
+  min-width: 100px
+  font-weight: bold
+  .jcf-select-text
+    font-weight: bold
+    font-size: 14px
+  .jcf-select-opener
+    background-color: transparent
+    &::after
+      color: #fff
+.transaction-equivalent, .receive-currency
+  width: 45%
+  margin-top: 25px
+.transaction,.pay-currency
+  width: 45%
+  position: relative
+.receive-currency
+  margin-top: 0
+a.full-balance
+  position:  absolute
+  right: 120px
+  @media (max-width: 1300px)
+    right: 0
+    top: 0
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+.finish-step
+  position:  absolute
+  left:  0
+  right: 0
+  top: 0
+  bottom:  0
+  z-index:  99999
+  background-color: rgba(68, 70, 237, 0.93)
+  text-align: center
+  @include transition(all .5s)
+  @include transform(translateY(100%))
+.ask-layer
+  position: absolute
+  left: 50%
+  top: 50%
+  @include transform(translate(-50%, -50%))
+
+.message
+  font-weight: 400
+  color: #fff
+  font-size: 18px
+  line-height: 22px
+
+span
+  &.js-quantity, &.js-address
+    color: #7fdaff
+    font-weight: bold
+.js-fee
+  font-size:  14px
+  opacity: .5
+  margin-top: 5px
+a.btn-load
+  display:  inline-block
+  border-radius:  4px
+  font-size:  14px
+  color:  #fff
+  width:  90px
+  padding: 10px
+  margin: 20px 10px
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.33)
+  transition: all .1s
+  &:focus
+    @include transform(translateY(2px))
+  &.js-confirm
+    background-color:  #4caf50
+  &.js-discard
+    background-color:  $links-color
+.loader-layer
+  opacity: 0
+  @include transition(all .5s)
+  pointer-events: none
+  position: absolute
+  top: 50%
+  left: 50%
+  @include transform(translate(-50%, -50%))
+  svg
+    position: absolute
+    left: -60px
+    fill: #fff
+    width: 40px
+    overflow: visible
+    .layer
+      transform-origin: 30% 70%
+    #Layer_1
+      animation: loading-noku 10s infinite linear
+    #Layer_3
+      animation: loading-noku2 10s infinite linear
+  .progress
+    background: none
+    font-weight: 500
+    color: #fff
+    line-height: 22px
+    font-size: 18px
+    height: auto
+    margin-top: 20px
+    @include transition(all .3s)
+    display: block
+    text-align: center
+  .finish
+    font-weight: 500
+    color: #fff
+    line-height: 22px
+    font-size: 18px
+    height: auto
+    opacity: 0
+    @include transform(translateY(5px))
+    @include transition(all .3s)
+    display: block
+    text-align: center
+@keyframes loading-noku
+  0%
+    @include transform(scale(1))
+  5%
+    @include transform(scale(1.5))
+  15%
+    @include transform(scale(1))
+  20%
+    @include transform(scale(1.5))
+  25%
+    @include transform(scale(1))
+  30%
+    @include transform(scale(1.5))
+  35%
+    @include transform(scale(1))
+  40%
+    @include transform(scale(1.5))
+  45%
+    @include transform(scale(1))
+  50%
+    @include transform(scale(1))
+  55%
+    @include transform(scale(1.5))
+  60%
+    @include transform(scale(1))
+  65%
+    @include transform(scale(1.5))
+  70%
+    @include transform(scale(1))
+  75%
+    @include transform(scale(1.5))
+  80%
+    @include transform(scale(1))
+  85%
+    @include transform(scale(1.5))
+  90%
+    @include transform(scale(1))
+  95%
+    @include transform(scale(1.5))
+  100%
+    @include transform(scale(1))
+@keyframes loading-noku2
+  0%
+    @include transform(scale(1))
+  5%
+    @include transform(scale(.5))
+  15%
+    @include transform(scale(1))
+  20%
+    @include transform(scale(.5))
+  25%
+    @include transform(scale(1))
+  30%
+    @include transform(scale(.5))
+  35%
+    @include transform(scale(1))
+  40%
+    @include transform(scale(.5))
+  45%
+    @include transform(scale(1))
+  50%
+    @include transform(scale(1))
+  55%
+    @include transform(scale(.5))
+  60%
+    @include transform(scale(1))
+  65%
+    @include transform(scale(.5))
+  70%
+    @include transform(scale(1))
+  75%
+    @include transform(scale(.5))
+  80%
+    @include transform(scale(1))
+  85%
+    @include transform(scale(.5))
+  90%
+    @include transform(scale(1))
+  95%
+    @include transform(scale(.5))
+  100%
+    @include transform(scale(1))
+.checkmark__circle
+  stroke-dasharray: 166
+  stroke-dashoffset: 166
+  stroke-width: 2
+  stroke-miterlimit: 10
+  stroke: #fff
+  fill: none
+.checkmark
+  height: 40px
+  border-radius: 50%
+  display: block
+  stroke-width: 2px
+  stroke: #fff
+  stroke-miterlimit: 10
+  margin-top: 10px
+.checkmark__check
+  transform-origin: 50% 50%
+  stroke-dasharray: 48
+  stroke-dashoffset: 48
+.finishload
+  stroke: #4caf50
+  height: 25px
+  position: absolute
+  stroke-width: 4px
+  right: 0
+  top: -15px
+  .checkmark__circle
+    stroke: #4caf50
+    stroke-width: 4px
+@keyframes stroke
+  100%
+    stroke-dashoffset: 0
+@keyframes scale
+  0%, 100%
+    transform: none
+  50%
+    @include transform(scale3d(1.1, 1.1, 1))
+@keyframes fill
+  100%
+    box-shadow: inset 0px 0px 0px 30px #fff
+.js-action
+  font-size:  14px
+  color:  #fff
+  background-color:  $links-color
+  display:  inline-block
+  padding: 12px 20px
+  border-radius: 4px
+  margin-top:  20px
+  cursor:  pointer
+  &.disabled
+    background-color: #a1a2f6
+    pointer-events: none
+.additional-data a
+  color: $links-color
+  font-weight: 400
+  font-size: 14px
+  display: inline-block
+  position: relative
+  &.open
+    &:before
+      content: "\f068"
+  &::before
+    content: "\f067"
+    font-family: $fontAwesome
+    font-size: 18px
+    margin-right: 5px
+.input-added
+  max-height:  0px
+  overflow: hidden
+  @include transition(all .3s)
+  &.open
+    max-height: 50px
+  input
+    margin-top: 10px
+.equal
+  font-size: 35px
+  color:  #4a4a4a
+  margin-bottom: -25px
+.exchange
+  color:  #4a4a4a
+  margin-bottom: -25px
+  &::before
+    content: "\f0ec"
+    font-family: $fontAwesome
+.js-convert
+  position:  absolute
+  right: 5%
+  margin-top: 14px
+  padding: 11px 20px
+  @media (max-width:1300px)
+    position: static
+@media (max-width: 1300px)
+  .wrap-small
+    flex-wrap: wrap
+.token-balance
+  border-radius: 4px
+  box-shadow: 1px 1px 13px -3px rgba(0, 0, 0, 0.32)
+  margin-bottom: 30px
+  padding: 30px 25px
+  background-color: #fff
+  padding-bottom: 0
+  .list-token
+    margin-bottom: 20px
+    overflow: hidden
+    @include transition(all .5s)
+    &>div
+      background-color:  #f5f5f5
+      display:  inline-block
+      margin-right:  20px
+      border-radius: 50px
+      padding:  5px 10px
+      font-size: 12px
+      color: #4a4a4a
+      margin-bottom: 10px
+      &>img
+        width: auto
+        height: 18px
+        margin-right: 10px
+  .showAllTokens
+    border-top: 1px solid #eeeeee
+    text-align: center
+    & > a
+      padding: 20px 0
+      font-size: 14px
+      color: $links-color
+      display: block
+      &::before
+        content: '\f103'
+        font-family: $fontAwesome
+        margin-right: 10px
+        font-size: 14px
+        display: inline-block
+      &.opened::before
+        transform: rotate(180deg)
+.relative
+  position: relative
+.label-absolute
+  position:  absolute
+  right: 120px
+  @media (max-width: 1300px)
+    right: 0
+    top: -25px
+.functions
+  .calendar
+    @include transition(all .3s)
+    &::before
+      font-family: $fontAwesome
+      content: '\f073'
+      color: #9b9b9b
+      font-size: 22px
+    &.active::before
+      color: $links-color
+  .print
+    margin-right: 10px
+    &::before
+      font-family: $fontAwesome
+      content: "\f02f"
+      color: #9b9b9b
+      font-size: 22px
+  .reload
+    margin-right: 10px
+    &::before
+      font-family: $fontAwesome
+      content: '\f021'
+      color: #9b9b9b
+      font-size: 22px
+.header-transaction
+  border-bottom: 1px solid #dbddf9
+  position: relative
+  padding-bottom: 20px
+  .title-section
+    margin-bottom: 0
+.column-header
+  padding:  20px 30px
+  font-weight: 500
+  color: #4a4a4a
+  font-size: 16px
+  @media (max-width:1440px)
+    padding: 15px
+.col-Action
+  width: 14%
+  @media (max-width:1440px)
+    width: 16%
+.col-Date
+  width: 16%
+  @media (max-width:1440px)
+    width: 17%
+.pending
+  .col-Date
+    color: rgb(68, 70, 237)
+    font-weight: bold
+.col-Address
+  width: 33%
+  @media (max-width:1440px)
+    width: 17%
+.col-Unit
+  width: 12%
+  display: flex
+  align-items: center
+  @media (max-width:1440px)
+    width: 18%
+  img
+    max-width:  30px
+    height:  auto
+    margin-right: 5px
+    @media (max-width:1200px)
+      max-width: 20px
+.col-Quantity
+  width: 13%
+  @media (max-width:1440px)
+    width: 16%
+.col-Fee
+  width: 12%
+  @media (max-width:1440px)
+    width: 16%
+.column-table
+  padding: 12px 30px
+  text-overflow: ellipsis
+  overflow: hidden
+  font-size: 14px
+  color: #4a4a4a
+  font-weight: 300
+  @media (max-width:1440px)
+    padding: 15px
+  @media (max-width:1200px)
+    font-size: 12px
+  &.col-Action
+    font-weight: 600
+    text-transform: capitalize
+  &.col-Unit
+    font-weight: 600
+  &.col-Quantity
+    font-weight: 400
+  &:not(.col-Unit)
+    &.positive
+      color: #3da041
+    &.negative
+      color: #cc0d0d
+    &.grey
+      color: rgb(204, 204, 204)
+.single-transaction
+  background-color: #fff
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.1)
+  border-radius: 4px
+  margin-bottom: 10px
+  min-height: 59px
+  cursor: pointer
+  transition: background-color .1s
+  &:hover
+    background-color: rgba(150, 150, 150, .1)
+.visible-lg
+  @media (max-width:1200px)
+    display: none !important
+.visible-md
+  @media (min-width:1200px)
+    display: none !important
+.js-calendar
+  position: absolute
+  right: 0
+  top: 35px
+  background-color: #fff
+  border-radius: 5px
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1)
+  transition: all .4s
+  transform: translateY(-10px)
+  pointer-events: none
+  opacity: 0
+  z-index: 99999
+  &.opened
+    @include transform(translateY(0))
+    opacity: 1
+    pointer-events: auto
+  div#left
+    margin-right: 30px
+  .rd-container
+    border: none
+    padding: 0
+  .rd-month-label
+    font-size:  14px
+    text-transform:  uppercase
+    font-weight:  bold
+    color: $links-color
+    margin-bottom: 10px
+  th.rd-day-head
+    font-size:  14px
+    font-weight: 500
+    color:  #9b9b9b
+    text-transform:  uppercase
+  .rd-day-body
+    font-weight:  300
+    font-size: 14px
+    color: #9b9b9b
+    padding: 6px 7px
+  .rd-day-disabled, .rd-day-disabled, .rd-day-prev-month, .rd-day-next-month
+    opacity: .4
+  .rd-back::before
+    font-family: $fontAwesome
+    content: "\f104"
+    color: #c5c5c5
+    font-weight: 300
+    font-size: 20px
+  .rd-next::before
+    font-family: $fontAwesome
+    content: "\f105"
+    color: #c5c5c5
+    font-weight: 300
+    font-size: 20px
+  .rd-day-selected, .rd-time-option:hover, .rd-time-selected
+    background-color: $links-color
+    border-radius: 50px
+    color:  #fff
+  .calendar-container
+    padding: 20px
+  .label
+    font-size: 14px
+    text-transform: uppercase
+    text-align: center
+    color: #9b9b9b
+    font-weight: 300
+    margin-bottom: 10px
+  .footer-picker
+    background-color: $links-color
+    padding: 10px
+    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 4px
+    .close-calendar
+      font-weight: 600
+      color: #fff
+      font-size: 14px
+      display: inline-block
+      margin-left: 25px
+    .js-date-filter
+      font-weight: 400
+      border-radius: 4px
+      color: #fff
+      font-size: 14px
+      display: inline-block
+      padding: 10px
+      margin-left: auto
+      background-color: #2224c3
+.pagination-recent-transactions
+  text-align: center
+
+.pagination-btn
+  display: inline-block
+  box-shadow: 1px 1px 13px -3px rgba(0, 0, 0, 0.32)
+  margin-top: 20px
+  padding: 10px 13px 10px 0px
+  border-radius: 5px
+  background-color: #fff
+  span.js-current-page-recent-transactions
+    margin: 0 5px
+  [data-target="prev"]::before
+    content: '\f104'
+    font-size: 14px
+    font-family: $fontAwesome
+  [data-target="next"]::before
+    content: '\f105'
+    font-size: 14px
+    font-family: $fontAwesome
+  [data-target="last"]::after
+    content: '\f101'
+    font-size: 14px
+    font-family: $fontAwesome
+    display: inline-block
+    transform: translateY(1px)
+    margin-left: 5px
+  [data-target="first"]::before
+    content: '\f100'
+    font-size: 14px
+    font-family: $fontAwesome
+    display: inline-block
+    transform: translateY(1px)
+    margin-right: 5px
+  a
+    font-size: 12px
+    color: #4a4a4a
+    margin: 0 5px
+    padding: 5px
+    border-radius: 4px
+    position: relative
+    text-transform: capitalize
+    &:hover
+      background-color: #f5f5f5
+    &.disabled
+      opacity: 0.4
+      pointer-events: none
+#toast-container
+  div
+    opacity: 1
+    &:hover
+      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2)
+  .toast-message:hover
+    box-shadow: none
+.toast-success
+  background-color: #4caf50
+.toast-error
+  background-color: #c4282c
+.switch-type
+  position: relative
+  display: block
+  width: 60px
+  height: 24px
+  margin: 0 7px
+  &::before
+    content: '\f108'
+    font-family: $fontAwesome
+    position: absolute
+    font-size: 12px
+    color: $links-color
+    left: 10px
+    z-index: 999
+    top: 4px
+    pointer-events: none
+  &::after
+    content: '\f0c2'
+    font-family: $fontAwesome
+    position: absolute
+    font-size: 12px
+    color: #fff
+    right: 10px
+    top: 3px
+    pointer-events: none
+  input
+    display: none
+  &.checked
+    &::before
+      color: #fff
+    &::after
+      color: $links-color
+.changer
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: $links-color
+  -webkit-transition: .4s
+  -o-transition: .4s
+  -moz-transition: .4s
+  transition: .4s
+  border: none
+  &:before
+    position: absolute
+    content: ""
+    height: 20px
+    width: 45%
+    left: 4px
+    top: 2px
+    bottom: 3px
+    background-color: #fff
+
+input
+  &:focus + .changer
+    -webkit-box-shadow: 0 0 1px #2196F3
+    -moz-box-shadow: 0 0 1px #2196F3
+    box-shadow: 0 0 1px #2196F3
+  &:checked + .changer:before
+    -webkit-transform: translateX(25px)
+    -moz-transform: translateX(25px)
+    -ms-transform: translateX(25px)
+    -o-transform: translateX(25px)
+    transform: translateX(25px)
+
+.changer.round
+  -webkit-border-radius: 34px
+  -moz-border-radius: 34px
+  border-radius: 34px
+  &:before
+    -webkit-border-radius: 30px
+    -moz-border-radius: 30px
+    border-radius: 30px
+.header-workspace
+  background-color: #3234d0
+  padding: 10px 30px
+.ws-balance
+  font-size: 16px
+  font-weight: 300
+  color: #a7a8ff
+  & > div
+    margin-left: 25px
+  .label
+    font-weight: bold
+    margin-left: 0
+  .js-total-balance
+    font-weight: bold
+    color: #fff
+    font-size: 16px
+.ws-functions
+  .label-switch, a
+    font-size: 14px
+    color: #fff
+    opacity: .7
+  a
+    margin-right: 25px
+    position: relative
+    &::before
+      content:  ''
+      position:  absolute
+      bottom:  0
+      left:  0
+      width:  100%
+      background-color:  #fff
+      height:  1px
+      @include transition(transform .4s)
+      transform:  scaleX(0)
+      transform-origin:  center right
+    &:hover::before
+      @include transform(scaleX(1))
+      transform-origin: center left
+.workspace-page
+  #header
+    .logo
+      margin-left: 0 !important
+  .container-fluid
+    padding: 0
+  .workspace-container
+    padding: 50px 30px
+  .ws-list-wallets
+    flex-wrap: wrap
+    margin: 0 -30px
+    .wallet-card
+      background-color: #fff
+      width: calc(25% - 44px)
+      position: relative
+      margin: 0px 22px 22px 22px
+      min-height: 200px
+      @media (max-width:1440px)
+        width: calc(33.33% - 44px)
+  .total-balance
+    border: none
+  .token-balance
+    padding: 0 20px
+    padding-top: 0
+    box-shadow: none
+    margin-bottom: 0
+.ws-title
+  font-size: 24px
+  font-weight: bold
+  color: $links-color
+  margin-bottom: 50px
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    top: 50%
+    @include transform(translateY(-50%))
+    width: calc(100% - 300px)
+    right: 130px
+    height: 1px
+    background-color: #ececfd
+.js-edit
+  font-weight: 400
+  font-size: 14px
+  color: #4a4a4a
+  border: 1px solid #e4e4e4
+  position: absolute
+  right: 0
+  padding: 5px 20px 5px 40px
+  background-color: #fff
+  top: 50%
+  @include transform(translateY(-50%))
+  cursor: pointer
+  border-radius: 4px
+  span
+    position: relative
+    &::before
+      content: '\f040'
+      font-family: $fontAwesome
+      position: absolute
+      left: -25px
+      font-size: 15px
+.js-modify
+  font-weight: 400
+  font-size: 14px
+  color: #4a4a4a
+  position: absolute
+  right: 0
+  top: 50%
+  font-weight: 500
+  display: flex
+  @include transform(translateY(-50%))
+  pointer-events: none
+  .js-discard
+    border: 1px solid #f0b6b6
+    padding: 5px 20px 5px 40px
+    background-color: #fff
+    cursor: pointer
+    @include transition(all .3s)
+    border-radius: 4px
+    color: #cc0d0d
+    opacity: 0
+    transform: translateX(110px)
+    pointer-events: none
+    span
+      position: relative
+      &::before
+        content: '\f00d'
+        font-family: $fontAwesome
+        position: absolute
+        left: -25px
+        font-size: 20px
+        font-weight: 300
+  .js-save-drag
+    border: 1px solid #e4e4e4
+    padding: 5px 20px 5px 40px
+    background-color: #4da250
+    color: #fff
+    cursor: pointer
+    margin-left: 20px
+    border-radius: 4px
+    @include transition(all .3s)
+    opacity: 0
+    pointer-events: none
+    span
+      position: relative
+      &::before
+        content: '\f00c'
+        font-family: $fontAwesome
+        position: absolute
+        font-weight: 300
+        left: -25px
+        font-size: 20px
+.buttons
+  position:  absolute
+  z-index:  9
+  top: -10px
+  right: -10px
+  display: flex
+  align-items: center
+  .close
+    margin-left: 10px
+    background-color: #ec3737
+    opacity: 1
+    float: none
+    font-size: 20px
+    font-weight: 300
+    text-shadow: none
+    padding: 7px 10px
+    border-radius: 50px
+    @include transition(all .3s)
+    transform: scale(0)
+    box-shadow: 0px 1px 5px -1px
+    &::before
+      content: '\f00d'
+      font-family: $fontAwesome
+      color: #fff
+      font-size: 20px
+      font-weight: 300
+  .move
+    background-color: #999999
+    opacity: 1
+    float: none
+    font-size: 20px
+    font-weight: 300
+    text-shadow: none
+    padding: 3px 5px
+    border-radius: 50px
+    cursor: move
+    @include transition(all .3s)
+    transform: scale(0)
+    box-shadow: 0px 1px 5px -1px
+    &::before
+      content: '\f047'
+      font-family: $fontAwesome
+      color: #fff
+      font-size: 16px
+      font-weight: 300
+.workspace-wallet-name-plain,.input-wallet-workspace
+  @include transition(all .3s)
+.workspace-container:not(.dragging) .input-wallet-workspace
+  height: 0
+.input-wallet-workspace
+  // @include transform(scale(0))
+  margin: 0
+  padding: 0 5px
+  border: 0
+  display: none
+.dragging  
+  .wallet-card *:not(.buttons):not(.close):not(.move)
+    pointer-events:  none
+  .ws-title::before
+    width: calc(100% - 400px)
+    right: 250px
+  .js-modify
+    pointer-events: auto
+  .js-save-drag
+    opacity: 1
+    pointer-events: auto
+  .js-discard
+    transform: translateX(0)
+    opacity: 1
+    pointer-events: auto
+  .move,.close
+    @include transform(scale(1))
+    display: block
+    pointer-events: auto !important
+  .input-wallet-workspace
+    display: block
+    pointer-events: auto !important
+  .workspace-wallet-name-plain
+    display: none
+.background-qr
+  position:  absolute
+  left:  0
+  right: 0
+  top: 0
+  bottom:  0
+  background-color: #fff
+  z-index: 1
+  transition:  all .5s
+  pointer-events:  none
+  @include transform(translateY(100%))
+.wallet-card
+  z-index: 2
+  .overflow
+    overflow: hidden
+    position: relative
+  &.flipped
+    .background-qr
+      @include transform(translateY(0))
+      pointer-events: auto
+.is-positioning-post-drag
+  z-index: 2
+.packery-drop-placeholder
+  outline: 2px dashed #5e61ff
+  outline-offset: -6px
+  -webkit-transition: -webkit-transform 0.4s
+  transition: transform 0.4s
+.js-qr-code
+  position: absolute
+  left: 50%
+  transform: translate(-50%, -30%)
+  top: 50%
+
+.title-wallet
+  font-weight: 600
+  font-size: 18px
+  color: #000000
+  padding: 25px
+
+.close-bg
+  position:  absolute
+  top: 25px
+  right: 25px
+  cursor: pointer
+  &::before
+    content: '\f00d'
+    font-family: $fontAwesome
+    font-size: 18px
+    font-weight: 500
+    z-index: -1
+.create-wallet
+  box-shadow: none
+  border: 1px solid #9b9b9b
+  .card-header
+    background-color: #fff
+  .add-btn
+    color: #4caf50
+    font-size: 16px
+    text-align: center
+    position: absolute
+    display: block
+    left: 50%
+    @include transform(translateX(-50%))
+    bottom: 30px
+    &::before
+      content: '\f055'
+      font-family: $fontAwesome
+      font-size: 20px
+      margin-right: 5px
+      font-weight: 300
+.rect34
+  padding: 20px
+  img:first-child
+    margin-right: 20px
+#BigModal
+  .modal-body
+    transition: all .4s
+    overflow: hidden
+  .js-back
+    position: absolute
+    left: 40px
+    top: 50%
+    cursor: pointer
+    @include transform(translateY(-50%))
+    &::before
+      font-family: $fontAwesome
+      content: "\f060"
+      color: rgba(60,70,237,1)
+      font-size: 20px
+  .scroller
+    width: 1000000px
+    -webkit-transition: all 0.7s
+    -moz-transition: all 0.7s
+    -ms-transition: all 0.7s
+    -o-transition: all 0.7s
+    transition: all 0.7s
+  .block-hidden,.choose-type
+    float: left
+    width: 500px
+    margin-right: 100px
+  form
+    width: 500px
+    transition: all 0.3s
+    max-height: 0px
+    overflow: hidden
+    &.visible
+      max-height: 500px
+  .choose-type
+    .title-step:not(:first-child)
+      padding: 10px 0
+      margin: 10px 0
+      border-bottom: 1px solid #f2f2f2
+      position: relative
+      display: block
+      cursor: pointer
+      &::before
+        content:  '\f105'
+        font-family: $fontAwesome
+        position:  absolute
+        right: 20px
+        font-weight: 300
+        font-size:  30px
+        transition:  all .4s
+        transform-origin:  center
+        top: 10px
+  .modal-body
+    max-height: 100vh
+  &.NextStep
+    .scroller
+      -webkit-transform: translateX(-600px)
+      -moz-transform: translateX(-600px)
+      -ms-transform: translateX(-600px)
+      -o-transform: translateX(-600px)
+      transform: translateX(-600px)
+.modal-noku
+
+  .dz-image
+    max-width: 90px
+.signup
+  background-image: url("/Content/images/signupBG.png")
+  background-repeat: no-repeat
+  background-size: cover
+  height: 100vh
+  background-position-y: bottom
+  position: relative
+  .mask
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #7a3bf6 30%, $links-color 50%, #b030ff  300%)
+    opacity: 0.902
+    z-index: 1
+    pointer-events: none
+  header
+    display: none
+  .block
+    padding: 30px 40px
+    position: relative
+    background-color:  #fff
+    z-index:  9
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25)
+    border-radius: 4px
+    max-width: 50%
+    form
+      width: 400px
+      max-width: 100%
+    .title
+      color:  $links-color
+      font-size:  24px
+      text-align:  center
+      line-height:  1.5
+      margin-bottom: 20px
+    .logo
+      text-align: center
+      margin-bottom: 20px
+    label
+      color:  #4a4a4a
+      font-size:  14px
+    .form-group
+      font-family: "Lato", sans-serif
+    .form-item
+      margin-bottom: 15px
+      font-family: "Lato", sans-serif
+    input.form-control
+      border: 1px solid #e4e4e4
+      padding: 9px 0 9px 50px
+      font-size: 14px
+      font-family: "Lato", sans-serif
+      &:focus
+        box-shadow: none
+        border-color: #e4e4e4
+      &::-webkit-input-placeholder
+        color: #999999
+        font-weight: 300
+        font-family: "Lato", sans-serif
+      &::-moz-placeholder
+        color: #999999
+        font-weight: 300
+        font-family: "Lato", sans-serif
+      &:-ms-input-placeholder
+        color: #999999
+        font-weight: 300
+        font-family: "Lato", sans-serif
+      &:-moz-placeholder
+        color: #999999
+        font-weight: 300
+        font-family: ""Lato", sans-serif"
+    .label
+      font-size:  14px
+      line-height:  20px
+      color:  #4a4a4a
+      margin-bottom: 20px
+    input[type="submit"]
+      background-color:  $links-color
+      border: none
+      font-size:  14px
+      padding:  12px 20px
+      border-radius: 3px
+      color:  #fff
+      cursor: pointer
+    .usericon,.emailicon,.passwordicon
+      position: relative
+      &::before
+        font-family: $fontAwesome
+        position: absolute
+        left: 12px
+        top: 50%
+        font-weight: 300
+        color: #626262
+        font-size: 16px
+        @include transform(translateY(-50%))
+      &::after
+        content: ''
+        position: absolute
+        left: 37px
+        top: 0
+        bottom: 0
+        width: 1px
+        background-color: #e4e4e4
+    .usericon::before
+      content: "\f007"
+    .emailicon::before
+      content: "\f0e0"
+    .passwordicon::before
+      content: "\f084"
+  .labelout
+    position: absolute
+    bottom: -40px
+    left: 50%
+    @include transform(translateX(-50%))
+    color: #c8c9ff
+    font-size: 14px
+    & a
+      color: #ffffff
+      margin-left: 10px
+      position: relative
+      &::before
+        content: ''
+        position: absolute
+        bottom: -1px
+        left: 0
+        width: 100%
+        background-color: #fff
+        height: 1px
+        transition: transform .5s
+        @include transform(scaleX(0))
+        transform-origin: center right
+      &:hover::before
+        @include transform(scaleX(1))
+        transform-origin: center left
+.ghost-wallet
+  outline: 2px dashed $links-color
+  outline-offset: -6px
+  box-shadow: none !important
+  z-index: 1 !important
+  & > *
+    opacity:  0
+    background-color: transparent
+.sortable-fallback
+  opacity:  1 !important
+a.other-tokens:not(.hidden)
+  display:  inline-block
+  font-size:  12px
+  color:  #4a4a4a
+  font-weight:  bold
+  position:  relative
+  &:hover
+    color: $links-color
+  &::before
+    content: ''
+    width: calc(100% - 10px)
+    position: absolute
+    bottom: 0
+    left: 10px
+    background-color: $links-color
+    height: 1px
+    @include transform(scaleX(0))
+    transform-origin: center right
+    @include transition(transform .4s)
+  &:hover::before
+    @include transform(scaleX(1))
+    transform-origin: center left
+
+// .easy-autocomplete-container
+//   ul
+//     background-color: rgb(68, 70, 237)
+//     li.selected
+//       background-color: rgb(94, 97, 255)
+
+
+.home-page
+  .autocomplete-suggestions
+    min-width: 350px
+    background: rgb(255, 255, 255)
+    color: rgb(68, 70, 237)
+    .autocomplete-suggestion
+      background: rgb(255, 255, 255)
+      color: rgb(68, 70, 237)
+      &:hover
+        background: rgba(68, 70, 237, .2)
+
+.autocomplete-suggestions
+  overflow: auto
+  // border: 1px solid #cbd3dd
+  background: rgb(68, 70, 237)
+  min-width: 400px
+  margin-top: 10px
+  // strong
+  //   color: #029cca
+  //   font-weight: normal
+.autocomplete-suggestion
+  overflow: hidden
+  padding: 5px 15px
+  white-space: nowrap
+  background: rgb(94, 97, 255)
+  color: rgb(255, 255, 255)
+  font-family: "Lato", sans-serif
+  font-size: 15px
+  cursor: pointer
+.autocomplete-selected
+  background: rgb(68, 70, 237)
+
+.link-special
+  color:  $links-color
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    background-color: $links-color
+    height: 1px
+    transition: transform .5s
+    @include transform(scaleX(0))
+    transform-origin: center right
+  &:hover::before
+    @include transform(scaleX(1))
+    transform-origin: center left
+
+.show-on-private-key
+  display: none
+  &.show
+    display: initial
+.block-container
+  position:  absolute
+  left:  50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  display: flex
+  z-index: 1
+  align-items: flex-start
+  min-width: 55%
+  @media (max-width: 1024px)
+    max-width: 90%
+  &.signup-container
+    align-items: center
+.info-block
+  margin-left: 7vw
+  color: #fff
+  // margin-top: 75px
+  font-weight: 700
+  .title
+    font-size: 24px
+    line-height: 1.5
+    margin-bottom: 20px
+  .section
+    margin-bottom: 30px
+    font-weight: 400
+    span
+      opacity: .8
+      display: block
+      line-height: 1.4
+    b
+      opacity: 1
+    &:last-child
+      margin-bottom: 0
+#transactiondetails
+  .label
+    width: 30%
+  .dato
+    width: 70%
+  .modal-dialog
+    max-width: 900px
+  .flex-container
+    margin-bottom: 10px
+  .flex-container:last-child
+    align-items: flex-start
+    .dato 
+      background-color: rgb(238, 238, 238)
+      padding: 8px
+      word-wrap: break-word
+      overflow: auto
+      max-height: 100px
+.tooltip
+  font-family: $fontDefault
+  .tooltip-inner
+    background-color: #fff
+    color: #000
+    border: 1px solid #e4e4e4
+  .arrow::before
+    border-top-color: #e4e4e4
+a.js-date-clear
+  font-weight: 400
+  border-radius: 4px
+  color: #fff
+  font-size: 14px
+  display: inline-block
+  padding: 10px
+  margin-left: auto
+  background-color: #2224c3
+.agenda-opener
+  font-size:  20px
+  margin-left: 15px
+  color:  #808080
+  cursor:  pointer
+#addressbook .table thead th
+  border: none
+  i.fal.fa-plus-circle
+    position: absolute
+    left: 50%
+    @include transform(translateX(-50%))
+    font-size: 40px
+    top: -20px
+    z-index: 1
+    cursor: pointer
+    background-color: #fff
+#privatekey
+  .copy-obbl::before
+    content: none
+  &.only-visible
+    .copy-obbl::before
+      content: "\f0c5"
+.pre-info
+  padding-top: 25px
+  .title
+    margin-bottom: 15px
+  .btn-noku
+    padding: 10px 20px
+    font-size: 14px
+  .description
+    color: #999999
+    line-height: 1.3
+    margin-bottom: 20px
+    span
+      font-weight: bold
+      display: block
+      margin-top: 10px
+      color: #4c4c4c
+.js-explore-container
+  .desc-modal
+    margin-bottom:  20px
+  .btn-noku
+    margin-top: 20px
+.dropzone-container
+  position:  relative
+.modal-noku.only-visible
+  .copy-obbl
+    float: left
+    width: -webkit-calc(100% - 140px)
+    width: -moz-calc(100% - 140px)
+    width: calc(100% - 140px)
+  .qr-visible
+    float: right
+  .modal-dialog
+    max-width: 600px
+.mr-15
+  display: inline-block
+  margin-right: 15px
+
+.not-cursor-copy
+  .copy-obbl
+    &:before
+      content: ""
+    textarea
+      cursor: text !important
+      padding-right: 15px
+.option.level
+  background-color: #eaf4eb
+.select-custom .option-modal2
+  padding: 17px
+  .option
+    margin: 0 -5px
+.select-custom 
+  .option-modal2 
+    .option.level
+      &.pending
+        background-color: rgba(245, 166, 35, .1)
+        a
+          color: rgba(245, 166, 35, 1)
+          &> span
+            background-color: rgba(245, 166, 35, .15)
+      &.error
+        background-color: rgba(208, 2, 27, .1)
+        a
+          color: rgba(208, 2, 27, 1)
+          &> span
+            background-color: rgba(208, 2, 27, .15)
+      a
+        color: #339637
+        display: -webkit-box
+        display: -webkit-flex
+        display: -moz-box
+        display: -ms-flexbox
+        display: flex
+        -webkit-box-pack: justify
+        -webkit-justify-content: space-between
+        -moz-box-pack: justify
+        -ms-flex-pack: justify
+        justify-content: space-between
+        -webkit-box-align: center
+        -webkit-align-items: center
+        -moz-box-align: center
+        -ms-flex-align: center
+        align-items: center
+        &> span
+          background-color: #cfe6d0
+          display: inline-block
+          padding: 2px 5px
+          -webkit-border-radius: 4px
+          -moz-border-radius: 4px
+          border-radius: 4px
+.option-modal2 .option:not(.level) a
+  padding: 10px 0
+  position: relative
+  &::before
+    content:  ''
+    position:  absolute
+    bottom:  10px
+    left:  0
+    width:  100%
+    background-color:  #4a4a4a
+    height:  1px
+    @include transition(transform .4s)
+    transform:  scaleX(0)
+    transform-origin:  center right
+  &.js-logout
+    padding: 0
+    &::before
+      bottom: 0
+  &:hover::before
+    @include transform(scaleX(1))
+    transform-origin: center left
+.js-modal-account-info hr
+    border-color:  #f2f2f2
+    margin-left:  -17px
+    margin-right: -17px
+    margin-bottom: 10px
+    margin-top: 10px
+.select-custom .option-modal .option i.fal.fa-cogs
+    margin-right: 10px
+
+.workspace-container 
+  .wallet-card 
+    .address
+      &:before
+        content: ""
+    .copy 
+      position: absolute
+      top: 50%
+      right: 22px
+      @include transform(translateY(-50%))
+      &:before
+        font-family: $fontAwesome
+        content: '\f0c5'
+        color: #fff
+        font-size: 22px
+
+@media screen and (min-width: 1301px)
+  #transaction-amount
+    padding-right: 107px
+
+.locked
+  border-bottom: solid 1px rgb(228, 228, 228)
+  padding-bottom: 5px
+  margin-bottom: 5px
+
+.title-tooltip
+  color: rgb(68, 70, 237)
+  font-weight: bold
+
+.locked-icon
+  padding-left: 5px
+  color: rgb(155, 155, 155)
+
+.warning-error-transaction
+  padding-left: 5px
+  color: rgb(208, 2, 27)
+
+.error-transaction-label
+  color: rgb(208, 2, 27)
+
+.warning-pending-transaction
+  padding-left: 5px
+  color: rgba(255, 144, 1, 0.78)
+
+.ismine-trasaction
+  padding-left: 5px
+
+.bootbox
+  .modal-title
+	  font-size: 15px
+  .modal-header .close
+    display: none

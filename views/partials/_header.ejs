@@ -1,0 +1,85 @@
+<div class="logo-print">
+  <a href="/"><img src="/content/images/logo-print.svg" alt=""></a>
+</div>
+</div>
+<header id="header">
+  <div class="container-fluid">
+    <div class="header-container">
+      <div class="left-header">
+        <div class="logo">
+          <a href="/"><img src="/content/images/logo_wallet.svg" alt=""></a>
+        </div>
+        <!--
+        <div class="select-custom">
+          <div class="select-label">
+            Services
+          </div>
+          <div class="option-modal">
+            <div class="label">Choose your services</div>
+            <% for (var i = 1; i <= 4; i++) { %>
+              <div class="option"><a href="#">service <%- i %></a></div>
+            <% } %>
+          </div>
+        </div>
+        -->
+        <div class="workspace">
+          <a href="/workspace" class="link">Workspace</a>
+        </div>
+
+      </div>
+      <div class="right-header">
+        <div class="search-bar">
+          <form action="javascript:;" class="js-form-gotoaddress">
+              <input type="search" name="address" value="" id="explore-text" placeholder="Search by address">
+              <div class="search-icon"></div>
+          </form>
+        </div>
+        <!--
+        <div class="list-address">
+          <a class="address-container" data-target="#addressbook" data-toggle="modal"><i class="far fa-address-book"></i></a>
+-->
+        <% if(isAuthenticated) { %>
+           <div class="select-custom">
+            <div class="select-label">
+              Account
+            </div>
+            <div class="option-modal js-modal-account-info option-modal2">
+              <div class="detail-avatar flex-container space-between align-start justify-start">
+                <div class="js-avatar"></div>
+                <div class="description-avatar">
+                  <div class="js-username"></div>
+                  <div class="js-email"></div>
+                </div>
+                <div class="js-kyc-level-img"></div>
+              </div>
+              <div class="option level"><a href="/account/upgradelevel">Upgrade KYC Level<span>Level <span class="js-kyc-level">1</span></span></a></div>
+              <div class="option flex-container justify-start"><i class="fal fa-user-circle"></i><a href="/account/details">Account Detail</a></div>
+              <!-- <div class="option flex-container justify-start"><i class="fal fa-cogs"></i><a href="/account/settings">Settings</a></div> -->
+              <hr />
+              <div class="option flex-container justify-start logout"><i class="fal fa-sign-out-alt"></i><a href="/logout" class="js-logout">logout</a></div>
+            </div>
+          </div>
+        <% } %>
+        <div class="select-custom wallet-select">
+          <div class="select-label big-label">
+            My Wallet
+          </div>
+          <div class="option-modal">
+            <div class="label">Unlock Your Wallet</div>
+            <div class="option"><a href="javascript:;" data-target="#privatekey" data-toggle="modal">Private Key</a></div>
+            <div class="option"><a href="javascript:;" data-target="#encprivatekey" data-toggle="modal">Private Encrypted Key</a></div>
+            <div class="option"><a href="javascript:;" data-target="#mnemonicphrase" data-toggle="modal">Mnemonic Phrase</a></div>
+            <div class="option"><a href="javascript:;" data-target="#utc-json" data-toggle="modal">UTC / JSON File</a></div>
+            <div class="label label-separate">
+              Create a new Wallet
+            </div>
+            <div class="btn btn-noku removeActive" data-target="#createwallet" data-toggle="modal">
+              New Wallet
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>

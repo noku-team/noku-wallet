@@ -1,0 +1,161 @@
+<% bodyclasses = 'workspace-page' %>
+<%- layout('partials/_layout') %>
+<%- partial('partials/_header-workspace') %>
+
+<div class="workspace-container">
+  <div class="ws-title">
+    My Wallets
+    <div class="js-edit">
+      <span>Edit</span>
+    </div>
+    <div class="js-modify">
+      <div class="js-discard">
+        <span>Discard</span>
+      </div>
+      <div class="js-save-drag">
+        <span>Save</span>
+      </div>
+    </div>
+  </div>
+  <div class="ws-list-wallets flex-container justify-start align-stretch" id="lista-wallet">
+
+    <!--
+      <div class="wallet-card" data-address="" data-order="< %= i % >">
+        <div class="buttons">
+          <div class="move"></div>
+          <div class="close"></div>
+        </div>
+        <div class="overflow">
+          <div class="background-qr">
+            <div class="title-wallet">Yue</div>
+            <div class="close-bg"></div>
+            <div class="js-qr-code">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="card-header flex-container justify-start">
+            <div class="card-background" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAA8UlEQVRoQ+2YsQ3CQBAE/xMyJCJqoQZyREAJNOEGCCmAgADRCF3QAh1AgNOTxtxbWDCOz++/3dk/23VzWj7LD1zVRibmoo5MzJCiIzoykgKiNZKwHy+LHVldHught+0C1bVez0Yi2XUkUIYKI1qi1SvgqRWgYEYml5HDetb0m50elzQj6DWhlFJtJDnAdCQ6tURLtN4KmBEzQidSX/e1gUh/YrdmmupDhWn+0kg3SOtsJFJKtChDyQFrRpJC49sNu2HHsAwrxGjN71f0zd7td8N20Ki6O57RStVGkE75Ih2JNDQjSbpES7SSCIUC/tsceQGjTgAAAoxdsAAAAABJRU5ErkJggg==&quot;);"></div>
+            <div class="card-avatar">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAA8UlEQVRoQ+2YsQ3CQBAE/xMyJCJqoQZyREAJNOEGCCmAgADRCF3QAh1AgNOTxtxbWDCOz++/3dk/23VzWj7LD1zVRibmoo5MzJCiIzoykgKiNZKwHy+LHVldHught+0C1bVez0Yi2XUkUIYKI1qi1SvgqRWgYEYml5HDetb0m50elzQj6DWhlFJtJDnAdCQ6tURLtN4KmBEzQidSX/e1gUh/YrdmmupDhWn+0kg3SOtsJFJKtChDyQFrRpJC49sNu2HHsAwrxGjN71f0zd7td8N20Ki6O57RStVGkE75Ih2JNDQjSbpES7SSCIUC/tsceQGjTgAAAoxdsAAAAABJRU5ErkJggg==">
+              <i class="fal fa-qrcode"></i>
+            </div>
+            <div class="card-dates">
+              <div class="card-name">
+                POSIZIONE < %= i % >
+              </div>
+              <div class="address">
+                <span>0x378b99f232c124df4ce2644eb636da3d1d056c95</span>
+                <div class="copy"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="flex-container space-between total-balance">
+              <div class="card-label">Total Balance</div>
+              <div class="js-total-balance">
+                1,584,268.86244
+              </div>
+            </div>
+            <div class="token-balance">
+              <div class="list-token js-list-token">
+                <div>
+                  <img src="http://scan.noku.io/logos/FUN-32x32.png">
+                  <span>147,926,068 FUN</span>
+                </div>
+                <div>
+                  <img src="http://scan.noku.io/logos/CANDY-28x31.png">
+                  <span>1,599,270,152 CANDY</span>
+                </div>
+                <div>
+                  <img src="http://scan.noku.io/logos/PAY-32x32.png">
+                  <span>125,997.9 PAY</span>
+                </div>
+                <a class="other-tokens" href="/address/0x378b99f232c124df4ce2644eb636da3d1d056c95">+ <span class="js-total-tokens">15</span> other tokens</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    -->
+
+
+    <div class="wallet-card create-wallet">
+      <div class="card-header flex-container justify-start"><div class="card-avatar">
+          <img src="/Content/images/avatarfake.png">
+        </div>
+        <div class="card-dates">
+          <div class="card-name">
+            <img src="/Content/images/rect1.png" alt="">
+          </div>
+          <div class="address">
+            <img src="/Content/images/rect2.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="flex-container justify-start rect34">
+          <img src="/Content/images/rect3.png" alt="">
+          <img src="/Content/images/rect4.png" alt="">
+        </div>
+        <a href="javascript:;" class="add-btn" data-target="#BigModal" data-toggle="modal">
+          Add a new Wallet
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hidden js-origin-wallet-card">
+  <div class="wallet-card" data-address="{{address}}" data-name="{{wallet_name}}" data-order="{{order}}">
+    <div class="buttons">
+      <div class="move"></div>
+      <div class="close"></div>
+    </div>
+    <div class="overflow">
+      <div class="background-qr">
+        <div class="title-wallet js-wallet-name-ws">{{wallet_name}}</div>
+        <div class="close-bg"></div>
+        <div class="js-qr-code">
+          <!-- <img src="" alt=""> -->
+        </div>
+      </div>
+      <div class="card-header flex-container justify-start">
+        <div class="card-background" {{background_blockie}}></div>
+        <div class="card-avatar">
+          {{blockie}}
+          <i class="fal fa-qrcode"></i>
+        </div>
+        <div class="card-dates">
+          <div class="card-name js-wallet-name-ws">
+            <span class="workspace-wallet-name-plain">{{wallet_name}}</span>
+            <input type="text" class="form-control input-wallet-workspace js-wallet-name-input" placeholder="insert wallet name here" value="{{wallet_name}}">
+          </div>
+          <div class="address">
+            <span class="js-address-to-cut">{{address}}</span>
+            <div class="copy"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="flex-container space-between total-balance">
+          <div class="card-label">Total Balance</div>
+          <div class="js-total-balance">
+          </div>
+        </div>
+        <div class="token-balance">
+          <div class="list-token js-list-token hidden">
+            <a class="other-tokens hidden" href="/address/{{address}}">+ <span class="js-total-tokens">{{n_tokens}}</span> other tokens</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hidden js-token-card-original">
+  <div>
+    {{img_token}}
+    <span>{{balance_token}}</span>
+  </div>
+</div>
+
+<%- partial('partials/modal/_AllAccordionModal') %>

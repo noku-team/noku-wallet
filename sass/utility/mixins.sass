@@ -1,0 +1,84 @@
+=transition($args...)
+  -webkit-transition: $args
+  -moz-transition:    $args
+  -ms-transition:     $args
+  -o-transition:      $args
+  transition:         $args
+
+=transform($args...)
+  -webkit-transform:  $args
+  -moz-transform:     $args
+  -ms-transform:      $args
+  -o-transform:       $args
+  transform:          $args
+
+=box-shadow($args...)
+  -webkit-box-shadow: $args
+  -moz-box-shadow:    $args
+  box-shadow:         $args
+
+=icon-after($icon, $family: 'icomoon-base', $display: inline-block)
+  content: $icon
+  font-family: $family
+  display: $display
+
+=clear-after()
+  content: ''
+  display: block
+  clear: both
+
+=custom-border($color, $thickness, $length, $color-percentage)
+  background-image: linear-gradient(to right, $color $color-percentage, transparent 100% - $color-percentage), linear-gradient(to right, $color $color-percentage, transparent 100% - $color-percentage), linear-gradient(to bottom, $color $color-percentage, transparent 100% - $color-percentage), linear-gradient(to bottom, $color $color-percentage, transparent 100% - $color-percentage)
+  background-position: left top, left bottom, left top, right top
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y
+  background-size: $length $thickness, $length $thickness, $thickness $length, $thickness $length
+
+=arrow-up($width: 5px, $color: black)
+  width: 0
+  height: 0
+  border-left: $width solid transparent
+  border-right: $width solid transparent
+  border-bottom: $width solid $color
+  display: inline-block
+
+=arrow-down($width: 5px, $color: black)
+  width: 0
+  height: 0
+  border-left: $width solid transparent
+  border-right: $width solid transparent
+  border-top: $width solid $color
+  display: inline-block
+
+=arrow-right($width: 5px, $color: black)
+  width: 0
+  height: 0
+  border-top: $width solid transparent
+  border-bottom: $width solid transparent
+  border-left: $width solid $color
+  display: inline-block
+
+=arrow-left($width: 5px, $color: black)
+  width: 0
+  height: 0
+  border-top: $width solid transparent
+  border-bottom: $width solid transparent
+  border-right: $width solid $color
+  display: inline-block
+
+=aspect-ratio($width-ratio: 1, $height-ratio: 1)
+  position: relative
+  width: 100%
+  padding-top: #{$height-ratio / $width-ratio * 100%}
+  > *
+    position:  absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+
+=absolute-fill()
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0

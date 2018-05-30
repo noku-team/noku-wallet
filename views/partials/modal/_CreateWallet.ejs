@@ -1,0 +1,23 @@
+<div class="modal fade modal-noku step1" id="createwallet" data-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create your wallet</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-noku">
+          <div class="createwaller-container">
+            <%- partial('../createwallet/_step1') %>
+            <%- partial('../createwallet/_step2') %>
+            <%- partial('../createwallet/_step3') %>
+            <%- partial('../createwallet/_step4') %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="pointer mr-auto" data-dismiss="modal">Cancel</div>
+        <div class="btn btn-noku dark-blue js-next-step" data-id="createwallet" data-currentstep="1">Next</div>
+      </div>
+    </div>
+  </div>
+</div>

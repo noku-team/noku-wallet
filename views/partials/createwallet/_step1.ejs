@@ -1,0 +1,36 @@
+<form action="javascript:;" class="step validateSubmit" data-step="1">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="accountnamecreatew">Choose a wallet name</label>
+        <input autocomplete="off" required type="text" class="form-control obbl" name="accountnamecreatew" id="accountnamecreatew">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="password">Choose a Password</label>
+            <input autocomplete="off" required type="password" class="form-control obbl validate-password js-password-create-json control-password" name="password" id="password" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-6 mb20">
+          <div class="form-group">
+            <label for="repassword">Repeat Password</label>
+            <input autocomplete="off" required type="password" class="form-control obbl control-repassword" name="repassword" id="repassword" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="">Pick an avatar</label>
+          <div class="choose-avatar">
+            <div class="avatars">
+              <div class="avatar js-load-wallets"></div>
+              <a class="load-more-wallets js-load-more-wallets" href="javascript:;"><img src="/Content/images/changebutton.png" alt="">Load others</a>
+            </div>
+            <input type="hidden" class="form-control js-create-address-wallet obbl avatar-fake" name="addresswallet" value="" required="required">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

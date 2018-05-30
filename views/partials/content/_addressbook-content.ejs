@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <th>Identicon</th>
+        <th>Address</th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <% addresslist.forEach(function(item) {%>
+            <tr class="js-address-item" data-address="<%- item.address %>">
+                <td class="avatar-book">
+                    <div class="js-create-blockie card-avatar"></div>
+                </td>
+                <td><a class="link-special js-insert-into-send" data-address="<%- item.address.toLowerCase() %>" href="/address/<%- item.address %>"><%- item.address.toLowerCase() %></a></td>
+                <td><input class="form-control js-address-name" type="text" value="<%- item.name %>"></td>
+                <td><div class="btn btn-noku js-save-address">save</div></td>
+                <td><div class="btn btn-danger js-delete-address"><i class="fal fa-trash"></i></div></td>
+            </tr>
+        <% }); %>
+        <tr class="js-address-item js-new-address" data-address="">
+            <td class="avatar-book">
+                <div class="js-create-blockie card-avatar"></div>
+            </td>
+            <td><input class="form-control js-address-address" placeholder="Add an address" type="text" value=""></td>
+            <td><input class="form-control js-address-name" placeholder="Add an name" type="text" value=""></td>
+            <td colspan="2"><div class="btn btn-noku js-add-line disabled">Add Contact</div></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,63 @@
+<% bodyclasses = 'signup' %>
+<%- layout('partials/_layout') %>
+
+
+<div class="mask"></div>
+<div class="block-container container signup-container">
+  <div class="block">
+    <div class="logo">
+      <img src="/Content/images/logoblu.png" alt="">
+    </div>
+    <div class="title"><b>Signup</b> to get your Noku Account</div>
+    <form action="/signup" method="POST" class="js-signup-form">
+      <% if (signup_message.length > 0) { %>
+        <div class="alert alert-danger"><%= signup_message %></div>
+      <% } %>
+      <div class="form-group form-item">
+        <label for="email">Email</label>
+        <div class="emailicon">
+          <input id="email" class="form-control obbl validateEmail" type="text" name="email" value="" placeholder="Email address">
+        </div>
+      </div>
+      <div class="form-group form-item">
+        <label for="passwordsignup">Password</label>
+        <div class="passwordicon">
+          <input id="passwordsignup" class="form-control obbl validate-password" type="password" name="password" value="" placeholder="Your account passowrd">
+        </div>
+      </div>
+      <div class="form-group form-item">
+        <label for="repasswordsignup">Repeat Password</label>
+        <div class="passwordicon">
+          <input id="repasswordsignup" class="form-control obbl" type="password" name="repassword" value="" placeholder="Retype Your account password">
+        </div>
+      </div>
+      <div class="form-group form-item">
+        <label for="usernamesignup">NickName</label>
+        <div class="usericon">
+          <input id="usernamesignup" class="form-control obbl" type="text" name="username" value="" placeholder="Your username">
+        </div>
+      </div>
+      <div class="label">By tapping Signup & Accept, you agree to our <a class="link-special" target="_blank" href=" https://www.noku.io/privacy-policy/">Privacy Policy.</a></div>
+      <input type="submit" name="" value="Signup & Accept">
+    </form>
+    <%/*<div class="labelout">Already have an account? <a class="link-special" href="#">Login</a></div>*/%>
+  </div>
+  <div class="info-block">
+    <div class="title">Why Register a Noku Account?</div>
+    <div class="section">
+      <span>A Noku Account allows you to get access to the Noku Platform, an innovative tool made of interfaces, services and products, designed to manage your coin&token on the blockchain.</span>
+    </div>
+    <div class="section">
+      <b>Workspace</b><span>The space where you can organize and monitor all your addresses, simplifying their daily use.</span>
+    </div>
+    <div class="section">
+      <b>Noku Account</b><span>A unique spot where you manage your settings and process through the 3 levels provided for getting access to all the Noku Platform functionalities.</span>
+    </div>
+    <div class="section">
+      <b>KYC & ICO​</b><span>Once you’ve completed the KYC procedure and reached the account level 3, you can participate in ICO powered by NOKU using your Noku Wallet. It’s a very easy way and you don’t need to repeat the KYC procedure every time.</span>
+    </div>
+    <div class="section">
+      <b>Other functions</b><span>These are just some of the first functionalities coming soon. Register now: we’ll send you a notification when the platform is definitively online, and you will already be able to access.</span>
+    </div>
+  </div>
+</div>

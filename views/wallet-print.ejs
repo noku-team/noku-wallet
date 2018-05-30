@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/content/css/print-min.css">
+  <script type="text/javascript" src="/content/js/eth4you.min.js"></script>
+  <script type="text/javascript" src="/content/js/print.js"></script>
+</head>
+<body>
+  <div class="print-container" id="print-container">
+    <div class="logobox">
+      <img src="/content/images/logo_noku_black.png" class="print-title">
+      <div>WALLET</div>
+    </div>
+    <div class="www">www.noku.io</div>
+    <div id="identicon" class="addressIdenticon med" style="">
+    </div>
+    <div class="print-address-container">
+      <p><strong>Address:</strong><br>
+        <span id="paperwalletadd"></span>
+      </p>
+    </div>
+    <div class="print-qr-code-1">
+      <div id="paperwalletaddqr" title="">
+        <canvas width="256" height="256" style="display: none;"></canvas>
+        <img alt="Scan me!" src="">
+      </div>
+      <p class="print-text">Address</p>
+    </div>
+    <div class="print-notes">
+      <img src="/content/images/notes-bg.png" width="90%;" height="auto" class="pull-left">
+      <p class="print-text">Notes</p>
+    </div>
+    <div class="print-qr-code-2">
+      <div id="paperwalletprivqr" title="0fb463cba13d4fc536047377b639c9f2e5b1fd43de12d695178c76ef906b7348">
+        <canvas width="256" height="256" style="display: none;"></canvas>
+        <img alt="Scan me!" src="">
+      </div>
+      <p class="print-text">Private Key</p>
+    </div>
+    <div class="print-pkey-container">
+      <p><strong>Private Key:</strong><br>
+        <span id="paperwalletpriv"></span>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

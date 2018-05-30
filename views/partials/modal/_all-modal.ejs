@@ -1,0 +1,50 @@
+<!-- modal create new wallet -->
+<%- partial('_CreateWallet') %>
+
+<!-- modal homepage private key-->
+<%- partial('_pr-key') %>
+
+<!-- modal homepage private key onlyview-->
+<%- partial('_pr-key-onlyview') %>
+
+<!-- modal homepage encrypted key-->
+<%- partial('_en-key') %>
+
+<!-- modal homepage mnemonicphrase-->
+<%- partial('_mnemonicphrase') %>
+
+<!-- modal homepage utc-json-->
+<%- partial('_utc-json') %>
+
+<!-- modal address book-->
+<%- partial('_addressbook') %>
+
+<!-- modal address book-->
+<%- partial('_mnemoniclist') %>
+
+<!-- modal transition details -->
+<%- partial('_transitiondetails') %>
+
+<!-- modal save your wallet -->
+<%- partial('_save-wallet') %>
+
+<% if (success_message_popup.length > 0) { %>
+    <div class="modal fade modal-noku not-progress" id="success_modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <% if (success_title_popup.length > 0) { %>
+                <div class="modal-header">
+                    <h5 class="modal-title"><%= success_title_popup %></h5>
+                    <i class="far fa-times" data-dismiss="modal"></i>
+                </div>
+            <% } %>
+            <div class="modal-body">
+                <%= success_message_popup %>
+            </div>
+            <div class="modal-footer">
+              <div class="btn btn-noku dark-blue" data-dismiss="modal">OK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+<% } %>

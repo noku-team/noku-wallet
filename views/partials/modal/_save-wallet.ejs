@@ -1,0 +1,28 @@
+<div class="modal fade modal-noku not-progress" id="saveWallet">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Save your Wallet</h5>
+        <i class="far fa-times" data-dismiss="modal"></i>
+      </div>
+      <div class="modal-body">
+        <div class="form-noku">
+          <div class="simple-modal">
+            <div class="row">
+              <div class="col-md-12">
+                <form action="javascript:;" class="js-resave-wallet">
+                  <%- partial('../content/_save-wallet-content') %>
+                  <input type="submit" class="hidden">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="pointer mr-auto" data-dismiss="modal">Cancel</div>
+        <a href="javascript:;" class="btn btn-noku dark-blue enc-unlock js-download-json">Save/Download</a>
+      </div>
+    </div>
+  </div>
+</div>

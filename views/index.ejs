@@ -1,0 +1,165 @@
+<% bodyclasses = 'home-page' %>
+<%- layout('partials/_layout') %>
+
+<div class="home-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 remove-padding">
+        <div class="container-left">
+          <div class="center-h">
+            <div class="title">
+              <img src="/Content/images/logo_wallet.svg" alt="" width="200" height="30">
+            </div>
+            <div class="description">
+              Noku Wallet is your powerful, easy to use and visually pleasing interface to interact with the blockchain. You can comfortably handle your private key, your UTC / JSON and your transactions.<br /><br />Noku Wallet manage ETH and ERC20 tokens.
+            </div>
+            <div class="btn-large js-change-right" data-target="unlock" data-force="true">
+              Unlock your Wallet
+            </div>
+            <div class="btn-large" data-toggle="modal" data-target="#createwallet">
+              Create a new Wallet
+            </div>
+            <div class="btn-large js-change-right" data-target="explore" data-force="true">
+              Explore an address
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 remove-padding">
+        <div class="container-right">
+          <div class="center-h">
+            <div class="switch-container">
+
+              <div class="switch-scroll">
+<%
+                var active = true;
+                if(!isAuthenticated) {
+                  active = false;
+%>
+                  <div class="switch pre-info active" data-id="account">
+                    <div class="title">
+                      Noku Platform
+                    </div>
+                    <div class="description">
+                      Noku Platform is an innovative tool: it includes interfaces, services and products designed to administer your coin and token in a handy, clear and intuitive way.<br />Noku Platform is the easiest way to manage your Account and enjoy all the Noku services starting from the Custom Token service, which enables you to print your own money.
+                    </div>
+                    <a class="btn btn-noku"href="/signup">Register</a>                    
+                    <a class="btn btn-noku"href="/login">Login</a>
+                  </div>
+<%
+                }
+%>
+                <div class="switch unlock-switch <%- active ? "active" : "" -%>" data-id="unlock">
+                  <% if(!active) { %>
+                    <div class="back-arrow-block">
+                      <div class="back js-back-switch">
+                        back
+                      </div>
+                    </div>
+                  <% } else { %>
+                    <div class="">
+                      Hello <%- currentUser.username || currentUser.email %>,<br /> unlock your wallet with:
+                    </div>
+                  <% } %>
+                  <div class="list">
+                    <div class="single js-change-right" data-target="privatekey">
+                      Private Key
+                    </div>
+                    <div class="single js-change-right" data-target="encprivatekey">
+                      Encrypted Private Key
+                    </div>
+                    <div class="single js-change-right" data-target="mnemonicphrase">
+                      Mnemonic Phrase
+                    </div>
+                    <div class="single js-change-right" data-target="jsonfile">
+                      UTC / JSON File
+                    </div>
+                  </div>
+                </div>
+
+                <div class="switch privatekey-switch js-container-prkey" data-id="privatekey">
+                  <div class="back-arrow-block">
+                    <div class="back js-back-switch">
+                      Private Key
+                    </div>
+                  </div>
+                  <form action="javascript:;" class="js-private-key js-not-modal">
+                    <%- partial('partials/content/_pr-key-content') %>
+                    <div class="action-form">
+                      <button class="btn btn-noku" type="submit">
+                        Unlock
+                      </button>
+                    </div>
+                  </form>                  
+                </div>
+
+                <div class="switch encprivatekey-switch js-container-prkey" data-id="encprivatekey">
+                  <div class="back-arrow-block">
+                    <div class="back js-back-switch">
+                      Encrypted Private Key
+                    </div>
+                  </div>
+                  <form action="javascript:;" class="js-private-key-encrypted js-not-modal">
+                    <%- partial('partials/content/_en-key-content') %>
+                    <div class="action-form">
+                      <button class="btn btn-noku" type="submit">
+                        Unlock
+                      </button>
+                    </div>
+                  </form>                  
+                </div>
+
+                <form class="switch mnemonicphrase-switch js-mnemonicphrase" data-id="mnemonicphrase">
+                  <div class="back-arrow-block">
+                    <div class="back js-back-switch">
+                      Mnemonic Phrase
+                    </div>
+                  </div>
+                  <%- partial('partials/content/_mnemonicphrase-content') %>
+                  <div class="action-form">
+                    <button class="btn btn-noku">
+                      Unlock
+                    </button>
+                  </div>
+                </form>
+
+                <div class="switch jsonfile-switch js-container-json" data-id="jsonfile">
+                  <div class="back-arrow-block">
+                    <div class="back js-back-switch">
+                      UTC / JSON
+                    </div>
+                  </div>
+                  <form action="javascript:;" class="js-address-json js-not-modal">
+                    <%- partial('partials/content/_utc-json-content') %>
+                    <div class="action-form">
+                      <button class="btn btn-noku" type="submit">
+                        Unlock
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="switch jsonfile-switch js-explore-container" data-id="explore">
+                  <div class="back-arrow-block">
+                    <div class="back js-back-switch">
+                      Explore an address
+                    </div>
+                  </div>
+                  <%- partial('partials/content/_address-content') %>
+                  <div class="action-form">
+                    <button class="btn btn-noku js-explore-address js-not-modal">
+                      Explore
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

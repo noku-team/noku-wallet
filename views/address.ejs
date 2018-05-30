@@ -1,0 +1,247 @@
+<% bodyclasses = 'wallet-page' %>
+<%- layout('partials/_layout') %>
+<div class="js-config-data" data-currentaddress="<%= address %>"></div>
+<div class="jsB-container flex-container space-between align-start body-real">
+  <div class="col-left">
+    <div class="wallet-card">
+      <div class="overflow">
+        <div class="background-qr">
+          <div class="title-wallet"><%- currentaddressobj.name || "" %></div>
+          <div class="close-bg"></div>
+          <div class="js-qr-code"></div>
+        </div>
+        <div class="card-header flex-container justify-start">
+          <div class="card-background"></div>
+          <div class="card-avatar">
+            <img class="js-avatar" src="">
+            <i class="fal fa-qrcode"></i>
+          </div>
+          <div class="card-dates">
+            <div class="card-name">
+              <%- currentaddressobj.name || "" %>
+            </div>
+            <div class="address">
+              <span class="info not-style" data-info="<%= address %>"><%= address %></span>
+              <div class="copy"></div>
+            </div>
+          </div>
+          <div class="qr-print-container"></div>
+        </div>
+        <div class="card-body">
+          <div class="flex-container space-between total-balance">
+            <div class="card-label">Total Balance</div>
+            <div class="js-total-balance info" data-info=""></div>
+            <div class="js-total-dollari print-balance"></div>
+            <div class="js-total-euro print-balance"></div>
+            <div class="js-total-bitcoin print-balance"></div>
+          </div>
+          <div class="flex-container space-between private-key-link">
+            <div class="js-see-private-key"><a class="js-show-on-private-key hidden link-special" data-target="#privatekey-onlyview" data-toggle="modal" data-id="only-visible" href="">See Private Key</a></div>
+            <div class="link">
+              <span class="mr-15" data-toggle="modal" data-target="#saveWallet">
+                <a href="javascript:;" class="save js-show-on-private-key hidden" data-toggle="tooltip" data-placement="top" title="save wallet"></a>
+              </span>
+              <a href="javascript:;" class="print js-show-on-private-key hidden" data-toggle="tooltip" data-placement="top" title="print paper wallet"></a>
+              <a href="javascript:;" class="reload with-check" data-toggle="tooltip" data-placement="top" title="refresh data">
+                <svg class="checkmark hidden finishload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+                  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="token-balance js-token-balance hidden">
+      <div class="label-added">
+        Token Balance
+      </div>
+      <div class="list-token js-list-token">
+
+      </div>
+      <div class="showAllTokens js-showalltokens">
+        <a href="javascript:;">Show all tokens</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-right">
+    <div class="js-send-funds margin-50 disabled js-show-on-private-key hidden">
+      <div class="title-section">
+        Send Funds
+      </div>
+      <form class="wallet-simple-card send-funds-card">
+        <div class="finish-step">
+          <div class="ask-layer">
+            <div class="message">Are you sure to send <span class="js-quantity"></span> <br/> to <span class="js-address"></span> ?
+              <div class="js-fee"></div>
+            </div>
+            <div class="flex-container">
+              <a href="javascript:;" class="js-discard btn-load">Discard</a>
+              <a href="javascript:;" class="js-confirm btn-load">Confirm</a>
+            </div>
+          </div>
+          <div class="loader-layer">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+            <svg class="loader-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 41 44" style="enable-background:new 0 0 41 44;" xml:space="preserve">
+            <g class="layer" id="Layer_2">
+              <path id="Shape_1_" d="M13,30.9l-3.5,3.5l-1.1-1.1l3.5-3.5L13,30.9z"/>
+            </g>
+            <g class="layer" id="Layer_3">
+              <path id="Shape_2_" d="M6,17.5C6,7.8,13.8,0,23.5,0S41,7.8,41,17.5S33.2,35,23.5,35h-0.1C13.8,35,6,27.1,6,17.5z M9.6,17.5
+              c0.1,7.6,6.3,13.8,13.9,13.7s13.8-6.3,13.7-13.9c0-7.6-6.2-13.7-13.8-13.7C15.7,3.6,9.6,9.8,9.6,17.5L9.6,17.5z"/>
+            </g>
+            <g class="layer" id="Layer_1">
+              <path id="Shape_3_" d="M0.5,37.8c0-3.2,2.6-5.8,5.8-5.8s5.8,2.6,5.8,5.8s-2.6,5.8-5.8,5.8h0C3.1,43.5,0.5,40.9,0.5,37.8z M1.7,37.8
+              c0,2.5,2.1,4.5,4.6,4.5c2.5,0,4.5-2.1,4.5-4.6c0-2.5-2-4.5-4.5-4.5C3.7,33.2,1.7,35.2,1.7,37.8L1.7,37.8z"/>
+            </g>
+          </svg>
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+          <div class="progress">Sending in progress...</div>
+          <div class="finish">Fund sent <br/> Check your transaction status on <a href="#">Recent Transaction</a></div>
+        </div>
+      </div>
+      <div class="flex-container space-between margin-30 wrap-small">
+        <div class="address-fund">
+          <div class="label-added">
+            Send to Address or ENS Name
+          </div>
+          <div class="flex-container justify-start">
+            <div class="avatar">
+              <img class="js-avatar-send" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAQAAAC0NkA6AAAALUlEQVR42u3NMQEAAAgDoK2/oc3g4QcFaCbvKpFIJBKJRCKRSCQSiUQikUhuFvwRG4t8xwv8AAAAAElFTkSuQmCC">
+            </div>
+            <input type="text" class="js-send-funds-to" value="">
+            <i class="far fa-address-book agenda-opener" data-target="#addressbook" data-toggle="modal"></i>
+          </div>
+        </div>
+        <div class="flex-container space-between">
+          <div class="js-gas-limit">
+            <label class="label-added">
+              Gas Limit
+            </label>
+            <input type="text" name="gas-limit" value="21000" id="gas-limit">
+          </div>
+          <div class="js-gas-price">
+            <label class="label-added">
+              Gas Price
+              <span class="info js-info-gas-price" data-info=""></span>
+            </label>
+            <div class="gwei">
+              <select class="gas-price js-gas-price" name="gas-price">
+                <!-- <option value="slow">Slow</option>
+                <option value="normal">Normal</option>
+                <option value="fast">Fast</option> -->
+                <option value="custom" selected="selected">Custom</option>
+              </select>
+              <input class="js-change-gwei disabled" id="gas-price" type="number" min="0" step="1" value="">
+              <span>Gwei</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-container space-between margin-30">
+
+        <div class="transaction">
+          <div class="label-added">
+            Amount to send
+          </div>
+          <div class="flex-container">
+            <input type="number" min="0" step="any" pattern="..." name="amount-to-send" value="" class="no-right" id="transaction-amount">
+            <a class="full-balance js-full-balance" href="#">Full Balance</a>
+            <select class="js-transaction-select jcf-colored no-left">
+            </select>
+          </div>
+        </div>
+
+        <div class="equal">=</div>
+
+        <div class="transaction-equivalent flex-container">
+          <input type="text" name="" value="" class="no-right" id="transaction-equivalent">
+          <select class="js-transaction-equivalent-select jcf-colored no-left">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="ETH">ETH</option>
+            <option value="BTC">BTC</option>
+            <option value="CHF">CHF</option>
+            <option value="GBP">GBP</option>
+            <option value="JPY">JPY</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+            <option value="RUB">RUB</option>
+            <option value="CNY">CNY</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="additional-data">
+        <a href="javascript:;">Sign or certificate your wallet</a>
+        <div class="input-added">
+          <input type="text" value="" class="js-additional-data-tx" disabled="disabled" placeholder="Put your certification code here">
+        </div>
+      </div>
+      <div class="js-action js-generate js-generate-transaction disabled" data-fee="">Generate Transaction</div>
+    </form>
+  </div>
+  <%/* partial('partials/wallet/swap') */%>
+
+  <div class="js-recent-transaction margin-50">
+    <div class="flex-container space-between header-transaction">
+      <div class="title-section">
+        Recent Transaction
+      </div>
+      <div class="functions">
+        <a href="javascript:;" class="print" data-toggle="tooltip" data-placement="top" title="print last transactions"></a>
+        <a class="reload with-check js-reload-transactions" href="javascript:;" data-toggle="tooltip" data-placement="top" title="refresh last transactions">
+          <svg class="checkmark hidden finishload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+          </svg>
+        </a>
+        <a class="calendar" href="javascript:;" data-toggle="tooltip" data-placement="top" title="filter by date"></a>
+        <div class="js-calendar">
+          <div class="flex-container space-between calendar-container align-start">
+            <div id="left">
+              <div class="label">from</div>
+            </div>
+            <div id="right">
+              <div class="label">to</div>
+            </div></div>
+            <div class="footer-picker flex-container space-between">
+              <a class="close-calendar" href="javascript:;">Cancel</a>
+              <div>
+                <a class="js-date-clear" href="javascript:;">Clear</a>
+                <a class="js-date-filter" href="javascript:;">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-container space-between table-header">
+        <!-- <div class="column-header col-THXHash">THXHash</div> -->
+        <div class="column-header col-Date">Date</div>
+        <div class="column-header col-Action">Action</div>
+        <div class="column-header col-Address">Address</div>
+        <div class="column-header col-Unit">Unit</div>
+        <div class="column-header col-Quantity">Quantity</div>
+        <div class="column-header col-Fee">Fee</div>
+      </div>
+      <div class="recent-transaction-table">
+      </div>
+      <div class="pagination-recent-transactions">
+        <div class="pagination-btn">
+          <a href="#" class="js-move-recent-transactions" data-target="first">first</a>
+          <a href="#" class="js-move-recent-transactions" data-target="prev"></a>
+          <span class="js-current-page-recent-transactions" data-currentpage="1" data-lastpage="">1</span>
+          <a href="#" class="js-move-recent-transactions" data-target="next"></a>
+          <a href="#" class="js-move-recent-transactions" data-target="last">last</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

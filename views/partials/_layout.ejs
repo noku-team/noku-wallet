@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700,800" rel="stylesheet"
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/content/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="/content/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/content/css/jcf.css">
+  <link rel="stylesheet" href="/content/css/rome.min.css">
+  <link rel="stylesheet" href="/content/css/toastr.min.css">
+  <!-- <link rel="stylesheet" href="/content/css/easy-autocomplete.min.css"> -->
+
+  <link rel="stylesheet" href="/content/css/app.css?v=1.2">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#4446ed">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#4446ed">
+
+  <title>Noku Wallet - NOKU, Crypto economy to real life</title>
+</head>
+
+<body class="<%= typeof bodyclasses != 'undefined'? bodyclasses : '' %>" data-auth='<%= isAuthenticated ? "true" : "false" %>'>
+
+<%- partial('_header') %>
+<%- body %>
+<%- partial('modal/_all-modal') %>
+<%- partial('_print-template') %>
+<!-- Scripts -->
+
+<script src="/content/js/jquery.min.js"></script>
+<script src="/content/js/js.cookie.js"></script>
+<script src="/content/js/popper.min.js"></script>
+<script src="/content/js/tooltip.min.js"></script>
+<script src="/content/js/bootstrap.min.js"></script>
+
+<script src="/content/js/jcf.js"></script>
+<script src="/content/js/jcf.select.js"></script>
+<script src="/content/js/jcf.radio.js"></script>
+<script src="/content/js/jcf.checkbox.js"></script>
+<script src="/content/js/jcf.scrollable.js"></script>
+<script src="/content/js/dropzone.js"></script>
+<script src="/content/js/socket.io.js"></script>
+<script src="/content/js/validation.js"></script>
+<script src="/content/js/jquery.autocomplete.min.js"></script>
+
+<script src="/content/js/bootbox.min.js"></script>
+
+<script src="/content/js/networks.js"></script>
+<script src="/content/js/eth4you.min.js"></script>
+<script src="/content/js/noku_utility.js"></script>
+<script src="/content/js/rome.min.js"></script>
+<script src="/content/js/toastr.min.js"></script>
+<script src="/content/js/masonry.pkgd.min.js"></script>
+<script src="/content/js/Sortable.min.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118580931-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-118580931-1');
+</script>
+
+<script src="/content/js/app.js?v=1.4"></script>
+<% if(isAuthenticated) { %>
+  <script src="/content/js/app_loggedin.js?v=1.3"></script>
+<% } %>
+
+</body>
+</html>

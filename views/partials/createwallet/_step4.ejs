@@ -1,0 +1,24 @@
+<form class="step validateSubmit " data-step="4">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="title-step">You have created a new wallet!</div>
+      <div class="desc-modal">Your wallet is ready: unlock it and take instantly control of your fund. You can upload the UTC / JSON file or enter the private key.</div>
+      <div class="margin-30"></div>
+      <div class="title-step">Access to your wallet</div>
+      <div class="radiobuttons accordion">
+        <div class="accordion-item">
+          <label><input class="item-opener" type="radio" name="choose" value="utc"> <span class="title-step">UTC / JSON</span></label>
+          <div class="form-item hidden-section">
+            <%- partial('../content/_utc-json-content') %>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <label><input class="item-opener" type="radio" name="choose" value="pk"> <span class="title-step">Private Key</span></label>
+          <div class="form-item hidden-section">
+            <textarea required class="privatekey js-load-pkey" placeholder="Enter Your Private Key" type="text" name="" value=""></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

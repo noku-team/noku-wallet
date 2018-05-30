@@ -1,0 +1,148 @@
+<div class="modal fade modal-noku not-progress" id="BigModal" data-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="js-back hidden"></div>
+        <h5 class="modal-title">Add a new Wallet</h5>
+        <i class="far fa-times" data-dismiss="modal"></i>
+      </div>
+      <div class="modal-body">
+        <div class="form-noku">
+          <div class="simple-modal">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="scroller">
+
+                  <div class="choose-type">
+                    <div class="title-step">You can import a wallet or add a view-only address</div>
+                    <div class="desc-modal">Select how you want to import an existing wallet</div>
+
+                    <div class="title-step" data-id="privatekey">Private Key</div>
+                    <div class="title-step" data-id="encprivatekey">Encrypted Private Key</div>
+                    <div class="title-step" data-id="mnemonicphrase">Mnemonic Phrase</div>
+                    <div class="title-step" data-id="jsonfile">UTC / JSON</div>
+                    <div class="title-step" data-id="address">View address only</div>
+                  </div>
+
+                  <div class="block-hidden">
+                    <form action="javascript:;" class="validateSubmit step-privatekey js-workspace-pr-key not-cursor-copy">
+                      <%- partial('../content/_pr-key-content') %>
+                    </form>
+                    <form action="javascript:;" class="validateSubmit step-encprivatekey js-workspace-en-key not-cursor-copy">
+                      <%- partial('../content/_en-key-content') %>
+                    </form>
+                    <form action="javascript:;" class="validateSubmit step-mnemonicphrase js-workspace-mnemonicphrase">
+                      <%- partial('../content/_mnemonicphrase-content') %>
+                    </form>
+                    <form action="javascript:;" class="validateSubmit step-jsonfile js-workspace-jsonfile">
+                      <%- partial('../content/_utc-json-content') %>
+                    </form>
+                    <form action="javascript:;" class="step-address js-workspace-address">
+                      <%- partial('../content/_address-content') %>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="pointer mr-auto" data-dismiss="modal">Cancel</div>
+        <div class="btn btn-noku dark-blue disabled enc-unlock-workspace" data-id="import">Import</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-noku not-progress" id="saveWorkspace">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Save your Workspace</h5>
+        <i class="far fa-times" data-dismiss="modal"></i>
+      </div>
+      <div class="modal-body">
+        <div class="form-noku">
+          <div class="simple-modal">
+            <div class="row">
+              <div class="col-md-12">
+                <form action="javascript:;" class="js-save-workspace-file">
+                  <div class="title-step">Save and encrypt your workspace</div>
+                    
+                    <div class="form-group">
+                      <div class="desc-modal">Your Workspace Name</div>
+                      <input autocomplete="off" class="form-control obbl js-workspace-name" type="text" placeholder="Enter your workspace name" />
+                    </div>
+                    <div class="form-group">
+                      <div class="desc-modal">Type a strong password to encrypt your workspace (six chars or more)</div>
+                      <input autocomplete="off" class="password-noku form-control obbl control-password js-workspace-password"  type="password" placeholder="password" />
+                    </div>
+                    <div class="form-group">
+                      <div class="desc-modal">Retype your password</div>
+                      <input autocomplete="off" class="password-noku form-control obbl control-repassword"  type="password" />
+                    </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="pointer mr-auto" data-dismiss="modal">Cancel</div>
+        <a href="javascript:;" class="btn btn-noku dark-blue enc-unlock js-download-json">Save/Download</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-noku not-progress" id="import-workspace-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Import your encrypted Workspace</h5>
+        <i class="far fa-times" data-dismiss="modal"></i>
+      </div>
+      <div class="modal-body">
+        <div class="form-noku">
+          <div class="simple-modal">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="title-step">Select Your Workspace File </div>
+                <div class="desc-modal">Select the file of the workspace you want to import</div>
+                <form action="javascript:;" class="js-load-workspace-file">
+                  <div class="dropzone-container js-json-workspace">
+                    <div class="dropzone-element">
+                      <div class="icon icon-upload"></div>
+                      <div class="span">Drag here or <span>browse</span> to upload</div>
+                    </div>
+                    <div class="images-preview">
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                      <div class="hidden-flex"></div>
+                    </div>
+                  </div>
+                  <div class="label-pk">Password to unlock</div>
+                  <input class="js-password-unlock-json password-noku obbl" type="password" placeholder="Enter your password" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="pointer mr-auto" data-dismiss="modal">Cancel</div>
+        <div class="btn btn-noku dark-blue enc-unlock" data-id="encprivatekey">Unlock & Import</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="js-noku-swap margin-50">
+    <div class="title-section">
+        Noku Swap
+    </div>
+    <div class="wallet-simple-card noku-swap-card">
+        <div class="finish-step">
+            <div class="ask-layer">
+                <div class="message">Are you sure to send
+                    <span class="js-quantity">100 ETH</span>
+                    <br/> to
+                    <span class="js-address">0x378b99f232c124df4ce2644eb636da3d1d056c95</span> ?
+                    <div class="js-fee">Fee 0.0014531 ETH</div>
+                </div>
+                <div class="flex-container">
+                    <a href="javascript:;" class="js-confirm btn-load">Confirm</a>
+                    <a href="javascript:;" class="js-discard btn-load">Discard</a>
+                </div>
+            </div>
+            <div class="loader-layer">
+                <svg class="loader-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 41 44" xml:space="preserve">
+                    <g class="layer" id="Layer_1">
+                        <path id="Shape" class="st0" d="M6,44c3.3,0,6-2.7,6-6c0-3.3-2.7-6-6-6c-3.3,0-6,2.7-6,6c0,1.6,0.6,3.1,1.8,4.2
+              C2.9,43.4,4.4,44,6,44z M6,34.2c2,0,3.7,1.6,3.7,3.7S8.1,41.5,6,41.5c-2,0-3.7-1.6-3.7-3.7c0-1,0.4-1.9,1.1-2.6
+              C4.1,34.6,5,34.2,6,34.2z" />
+                    </g>
+                    <g class="layer" id="Layer_2">
+                        <path id="Shape_1_" class="st0" d="M13,30.9l-3.5,3.5l-1.1-1.1l3.5-3.5L13,30.9z" />
+                    </g>
+                    <g class="layer" id="Layer_3">
+                        <path id="Shape_2_" class="st0" d="M6,17.5C6,7.8,13.8,0,23.5,0C33.2,0,41,7.8,41,17.5C41,27.2,33.2,35,23.5,35c0,0-0.1,0-0.1,0
+              C13.8,35,6,27.1,6,17.5z M9.6,17.5c0.1,7.6,6.3,13.8,13.9,13.7s13.8-6.3,13.7-13.9c0-7.6-6.2-13.7-13.8-13.7
+              C15.7,3.6,9.6,9.8,9.6,17.5C9.6,17.5,9.6,17.5,9.6,17.5z" />
+                    </g>
+                </svg>
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                </svg>
+                <div class="progress">Swapping in progress...</div>
+                <div class="finish">Conversion completed</div>
+            </div>
+        </div>
+        <div class="flex-container space-between wrap-small">
+
+            <div class="pay-currency">
+                <div class="label-added">
+                    Pay Currency
+                </div>
+                <div class="flex-container">
+                    <input type="text" name="" value="" class="no-right" placeholder="The amount ot convert">
+                    <a class="full-balance" href="#">Full Balance</a>
+                    <select class="js-transaction-select jcf-colored no-left">
+                        <option value="ETH">ETH</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="exchange"></div>
+
+            <div class="receive-currency">
+                <div class="label-added">
+                    Receive Currency
+                </div>
+                <div class="flex-container relative">
+                    <input type="text" value="" class="no-right" placeholder="The amount to receive">
+                    <div class="label-absolute">
+                        Free
+                        <span class="info" data-info="Lorem ipsum"></span>
+                    </div>
+                    <select class="js-transaction-equivalent-select jcf-colored no-left">
+                        <option value="USD">USD</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="js-action js-convert">Convert</div>
+        </div>
+    </div>
+</div>
